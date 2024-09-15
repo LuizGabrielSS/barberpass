@@ -1,7 +1,6 @@
 //Externas
 import React from 'react'
 import {Container,Box} from '@mui/material'
-import { useSelector } from "react-redux";
 
 //Internas
 import HeaderComponent from '../header'
@@ -11,12 +10,23 @@ import ErrorScreen from './components/error'
 
 export default function ContainerComponent({loading=false,status=200,children}){
 
+    function DefineColor(){
+        if(loading === true || status !== 200){
+            return "background.main"
+        }else{
+            return null
+        }
+    }
+
     return(
         <Box
-        height="100%"
-        width="100%"
+        height={window.innerHeight}
+        width={window.innerWidth}
+        sx={{
+            backgroundColor:DefineColor()
+        }}
         >
-            <Container>
+            <>
                 {
                     loading
                     ? <LoadingScreen/>
@@ -37,7 +47,7 @@ export default function ContainerComponent({loading=false,status=200,children}){
                             }
                         </>
                 }
-            </Container>
+            </>
         </Box>
     )
 
