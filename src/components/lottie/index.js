@@ -12,13 +12,13 @@ export default function LottieComponent({gif}){
 
     return(
         <Box
-        m={2}
+        // m={2}
         display="flex"
         alignItems="center"
         justifyContent="center"
         alignSelf="center"
         >
-            <Lottie options={defaultOptions} height={window.innerHeight*9/10}/>
+            <Lottie options={defaultOptions} height={window.innerHeight*8/10}/>
         </Box>
     )
 }
