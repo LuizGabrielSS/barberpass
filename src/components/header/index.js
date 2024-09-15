@@ -2,13 +2,16 @@ import React,{useState} from 'react'
 import { Box, Typography,CssBaseline, Button,List,ListItem,IconButton,Drawer,ListItemText,ListItemIcon,ListItemButton } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+//Icones
 import ReorderIcon from '@mui/icons-material/Reorder';
 import CloseIcon from '@mui/icons-material/Close';
 
 import ButtonComponent from '../button'
 import {Translator} from '../translate';
 
-function BigScreen(){
+function BigScreen({localizacao,navegacao}){
 
     return(
         <Box
@@ -20,7 +23,7 @@ function BigScreen(){
         }}
         >
             <ButtonComponent
-            action={null}
+            action={()=> navegacao('/precos')}
             text={
                 <Translator
                 path="header.price"
@@ -34,12 +37,35 @@ function BigScreen(){
 
 }
 
+function SmallScreen({OpenList,SetOpenList,drawerWidth,localizacao,navegacao}){
+
+    return(
+        <Drawer variant="temporary" open={OpenList} onClose={() => SetOpenList(!OpenList)}
+        >
+            <Box sx={{ width: drawerWidth }}>
+                <List>
+                    <SmallItems
+                    Icone={ReorderIcon}
+                    action={()=> navegacao('/precos')}
+                    text={
+                        <Translator
+                        path="header.price"
+                        />
+                    }
+                    />
+                </List>
+            </Box>
+            
+        </Drawer>
+    )
+}
+
 function SmallItems({action,text,Icone}){
     return(
         <Box>
             <ListItem>
                 <ListItemButton
-                onClick={() => action}
+                onClick={action}
                 >
                         <ListItemIcon
                         >
@@ -62,26 +88,7 @@ function SmallItems({action,text,Icone}){
     )
 }
 
-function SmallScreen({OpenList,SetOpenList,drawerWidth}){
-
-    return(
-        <Drawer variant="temporary" open={OpenList} onClose={() => SetOpenList(!OpenList)}
-        >
-            <Box sx={{ width: drawerWidth }}>
-                <List>
-                    <SmallItems
-                    Icone={ReorderIcon}
-                    action={null}
-                    text="test"
-                    />
-                </List>
-            </Box>
-            
-        </Drawer>
-    )
-}
-
-export default function HeaderComponent(){
+export default function HeaderComponent({altura}){
 
     const[OpenList,SetOpenList] = useState(false)
 
@@ -105,6 +112,10 @@ export default function HeaderComponent(){
         }),
       }));
 
+    const localizacao = useLocation();
+
+    const navegacao = useNavigate()
+
     return(
         <Box
         sx={{display:'flex'}}
@@ -113,6 +124,7 @@ export default function HeaderComponent(){
             <AppBar 
             position="fixed" 
             open={OpenList}
+            sx={{ height: altura }}
             >
                 <Box
                 sx={{
@@ -121,13 +133,14 @@ export default function HeaderComponent(){
                     alignItems:"center",
                     display:"flex"
                 }}
+                py={1}
                 >
                     <Box
                     sx={{
                         display:"flex",
                         justifyContent:"space-between"
                     }}
-                    m={3}
+                    mx={3}
                     >
                         {
                             window.innerWidth> 420 
@@ -143,6 +156,7 @@ export default function HeaderComponent(){
                         }
                         <Button
                         variant="text"
+                        onClick={()=> navegacao('/')}
                         >
                             <Typography
                             variant={
@@ -158,13 +172,14 @@ export default function HeaderComponent(){
                         </Button>
                         {
                             window.innerWidth> 420 
-                                ?   <BigScreen/>
+                                ?   <BigScreen
+                                    localizacao={localizacao}
+                                    navegacao={navegacao}
+                                />
                                 
                                 : null
                         }
                     </Box>
-
-                    {/* aqui é fixo*/}
                     <Box
                     sx={{
                         display:"flex",
@@ -173,9 +188,8 @@ export default function HeaderComponent(){
                     }}
                     mx={1}
                     >
-                        
                         <ButtonComponent
-                        action={null}
+                        action={()=> navegacao('/login')}
                         text={
                             <Translator
                             path="header.login"
@@ -192,6 +206,8 @@ export default function HeaderComponent(){
                     ? null
                     
                     : <SmallScreen
+                    localizacao={localizacao}
+                    navegacao={navegacao}
                     OpenList={OpenList}
                     SetOpenList={SetOpenList}
                     drawerWidth={drawerWidth}

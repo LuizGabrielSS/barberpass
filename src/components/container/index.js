@@ -1,6 +1,6 @@
 //Externas
 import React from 'react'
-import {Container,Box} from '@mui/material'
+import {Box} from '@mui/material'
 
 //Internas
 import HeaderComponent from '../header'
@@ -33,10 +33,18 @@ export default function ContainerComponent({loading=false,status=200,children}){
                     :   <>
                             {
                                 status === 200
-                                ?   <>
-                                    <HeaderComponent/>
-                                    {children}
-                                    </>
+                                ?   <Box
+                                    >
+                                    <HeaderComponent
+                                    altura={window.innerWidth/19}
+                                    />
+                                    <Box
+                                    marginTop={9}
+                                    marginX={2}
+                                    >
+                                        {children}
+                                    </Box>
+                                    </Box>
                                 :   <>
                                     {
                                         status.toLowerCase() === "network"

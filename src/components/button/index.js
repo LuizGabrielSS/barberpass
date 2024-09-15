@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 export default function ButtonComponent({text,active,action,variant="outlined"}){
 
@@ -9,7 +9,7 @@ export default function ButtonComponent({text,active,action,variant="outlined"})
             <Button
             size="large"
             variant={variant}
-            onClick={() => action}
+            onClick={action}
             color="secondary"
             >
                     {text}

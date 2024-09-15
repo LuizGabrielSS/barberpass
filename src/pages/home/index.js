@@ -6,10 +6,8 @@ export default function HomeScreen(){
 
     return(
         <ContainerComponent
-        status="201"
         >
-            Home
+            <p>Home</p>
         </ContainerComponent>
     )
-
 }
