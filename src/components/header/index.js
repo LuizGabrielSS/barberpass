@@ -29,7 +29,6 @@ function BigScreen({localizacao,navegacao}){
                 path="header.price"
                 />
             }
-            active={true}
             variant="outlined"
             />
         </Box> 
@@ -195,7 +194,6 @@ export default function HeaderComponent({altura}){
                             path="header.login"
                             />
                         }
-                        active={true}
                         variant='contained'
                         />
                     </Box>

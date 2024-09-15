@@ -40,7 +40,6 @@ export default function ContainerComponent({loading=false,status=200,children}){
                                     />
                                     <Box
                                     marginTop={9}
-                                    marginX={2}
                                     >
                                         {children}
                                     </Box>
