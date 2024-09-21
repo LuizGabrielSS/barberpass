@@ -1,33 +1,68 @@
-import React, {useState} from 'react'
+import React, {useReducer, useState,useEffect} from 'react'
 import {Box} from '@mui/material'
-import { useTranslation } from 'react-i18next'
 
 import ContainerComponent from '../../components/container'
-import InputComponent from '../../components/input'
-import {Translator} from '../../components/translate'
-import ButtonComponent from '../../components/button'
-import fundo from './fundo.png'
+
+import LoginComponent from './components/login'
+import PasswordComponent from './components/password'
+import SignUpComponent from './components/signup'
+
+const initialState = {
+    'email':null,
+    'password':null,
+    'repeat_password':null,
+    'number':null,
+    'modalidade':null,
+    'name':null
+}
+
+const reducer = (state,action) => {
+    return {
+        ...state,
+        [action.label]:action.value
+    }
+}
 
 export default function LoginScreen(){
 
-    const[user,setuser] = useState("")
+    const fundo = "/background/login.png"
 
-    const[password,setpassword] = useState("")
+    const[scren,setscreen] = useState('login')
 
-    const { t } = useTranslation()
+    const[state,dispatch] = useReducer(reducer,initialState)
+
+    const [altura, setAltura] = useState(window.innerHeight);
+    
+    const [largura, setLargura] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+          setAltura(window.innerHeight);
+          setLargura(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        // Limpeza do listener quando o componente for desmontado
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     return(
-        <ContainerComponent>
+        <ContainerComponent
+        >
             <Box
-            height={window.innerHeight*87/100}
+            // height={altura*87/100}
             sx={{
-                backgroundImage:`url(${fundo})`,
+                height: altura*87/100,
+                backgroundImage:`url(${process.env.PUBLIC_URL}${fundo})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 display:"flex",
                 justifyContent:"center",
-                alignItems:"center"
+                alignItems:"center",
             }}
             >
                 <Box
@@ -40,70 +75,17 @@ export default function LoginScreen(){
                     backgroundColor:"#fff"
                 }}
                 >
-                    <Box
-                    m={3}
-                    >
-                        <InputComponent
-                        placeholder={(t("login.user.placeholder"))}
-                        label={
-                            <Translator
-                                path="login.user.label"
-                                />
+                    {
+                        scren === 'login'
+                        ?  <LoginComponent setscreen={setscreen} state={state} dispatch={dispatch}/>
+                        :   <>
+                            {
+                                scren === 'password'
+                                ? <PasswordComponent setscreen={setscreen} state={state} dispatch={dispatch}/>
+                                : <SignUpComponent setscreen={setscreen} altura={altura} state={state} dispatch={dispatch}/>
                             }
-                        informacao={user}
-                        setinformacao={setuser}
-                        />
-                    </Box>
-                    <Box
-                    m={3}
-                    >
-                        <InputComponent
-                        placeholder={(t("login.password.placeholder"))}
-                        label={
-                            <Translator
-                                path="login.password.label"
-                                />
-                            }
-                        informacao={password}
-                        setinformacao={setpassword}
-                        password={true}
-                        />
-                    </Box>
-                    <Box
-                    m={3}
-                    >
-                        <ButtonComponent
-                        action={null}
-                        text={<Translator
-                            path="login.button.login"
-                            />}
-                        color='primary'
-                        variant='contained'
-                        />
-                    </Box>
-                    <Box
-                    m={3}
-                    >
-                        <ButtonComponent
-                        action={null}
-                        text={<Translator
-                            path="login.button.password"
-                            />}
-                        color='primary'
-                        variant='text'
-                        />
-                    </Box>
-                    <Box
-                    m={3}
-                    >
-                        <ButtonComponent
-                        action={null}
-                        text={<Translator
-                            path="login.button.sign_up"
-                            />}
-                        color='primary'
-                        />
-                    </Box>
+                            </>
+                    }
                 </Box>
             </Box>
         </ContainerComponent>

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Box, Typography,CssBaseline, Button,List,ListItem,IconButton,Drawer,ListItemText,ListItemIcon,ListItemButton } from '@mui/material'
+import { Box, Typography,CssBaseline, Button,List,ListItem,IconButton,Drawer,ListItemText,ListItemIcon,ListItemButton,CardMedia } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -157,17 +157,19 @@ export default function HeaderComponent({altura}){
                         variant="text"
                         onClick={()=> navegacao('/')}
                         >
-                            <Typography
-                            variant={
+                            {
                                 window.innerWidth> 420 
-                                ? "h4"
-                                : "body2"
+                                ? <CardMedia
+                                sx={{ width: window.innerWidth/7 }}
+                                src={`${process.env.PUBLIC_URL}/logo/logo_with_name.png`}
+                                component="img"
+                                />
+                                : <CardMedia
+                                sx={{ width: window.innerWidth/7 }}
+                                src={`${process.env.PUBLIC_URL}/logo/logo_without_back.png`}
+                                component="img"
+                                />
                             }
-                            color="text.main"
-                            
-                            >
-                                BarberPass
-                            </Typography>
                         </Button>
                         {
                             window.innerWidth> 420 
