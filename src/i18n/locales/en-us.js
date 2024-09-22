@@ -30,16 +30,31 @@ const login = {
     }
 }
 
+const home = {
+    'search':{
+        'label':'Search',
+        'placeholder':'Search for services'
+    },
+    'carrossel':
+        {
+            'category':'Category',
+            'description':'Description',
+            'time':'Time',
+            'map':'Map'
+        },
+}
+
 const translation = {
     translations: { 
         header:{
-            "price":"Prices",
+            "price":"Plans",
             "login":"Login"
         },
         "components":{
             "noOptionsText":"No options available"
         },
-        "login":login
+        "login":login,
+        "home":home
     }
 }
 

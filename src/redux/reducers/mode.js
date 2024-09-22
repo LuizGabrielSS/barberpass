@@ -26,7 +26,9 @@ const DarkMode = {
 const LightMode = {
     mode:'light',
     primary:{
-        main:ColorsCode.coffe_brown
+        main:ColorsCode.coffe_brown,
+        secondary:ColorsCode.cooper,
+        ter:ColorsCode.crisp_white
     },
     secondary:{
         main:ColorsCode.crisp_white
@@ -38,6 +40,7 @@ const LightMode = {
     text:{
         main:ColorsCode.crisp_white,
         secondary:ColorsCode.taupe_gray,
+        ter:'#000',
     },
 }
 
