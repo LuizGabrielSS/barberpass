@@ -4,6 +4,9 @@ import { Box } from '@mui/material'
 import ContainerComponent from '../../components/container'
 import SearchComponent from './components/search'
 import CarrosselComponent from './components/carrossel'
+import DuvidasComponent from './components/duvidas'
+import ServiceofferComponent from './components/serviceoffer'
+import Footer from '../../components/footer'
 
 export default function HomeScreen(){
 
@@ -35,7 +38,7 @@ export default function HomeScreen(){
     {
         id: 4,
         nome: 'Clínica Estética Bela',
-        categoria: 'estética',
+        categoria: 'estetica',
         descricao: 'Clínica de tratamentos estéticos',
         funcionamento: '08h-19h',
         endereco: 'Rua da Harmonia, 50'
@@ -67,7 +70,7 @@ export default function HomeScreen(){
     {
         id: 8,
         nome: 'Centro de Estética Beleza Pura',
-        categoria: 'estética',
+        categoria: 'estetica',
         descricao: 'Centro de estética com diversos tratamentos',
         funcionamento: '09h-21h',
         endereco: 'Rua da Beleza, 404'
@@ -91,7 +94,7 @@ export default function HomeScreen(){
     {
         id: 11,
         nome: 'Clínica Estética Perfeita',
-        categoria: 'estética',
+        categoria: 'estetica',
         descricao: 'Clínica de tratamentos estéticos avançados',
         funcionamento: '08h-20h',
         endereco: 'Rua da Beleza, 700'
@@ -123,7 +126,7 @@ export default function HomeScreen(){
     {
         id: 15,
         nome: 'Centro de Estética Beleza Natural',
-        categoria: 'estética',
+        categoria: 'estetica',
         descricao: 'Centro de estética com tratamentos naturais',
         funcionamento: '09h-21h',
         endereco: 'Rua da Natureza, 1100'
@@ -147,7 +150,7 @@ export default function HomeScreen(){
     {
         id: 18,
         nome: 'Clínica Estética Suprema',
-        categoria: 'estética',
+        categoria: 'estetica',
         descricao: 'Clínica de tratamentos estéticos supremos',
         funcionamento: '08h-20h',
         endereco: 'Rua da Beleza, 1400'
@@ -176,7 +179,7 @@ export default function HomeScreen(){
         <ContainerComponent
         >
             <Box
-            p={2}
+            pt={2}
             >
                 <SearchComponent
                 data={data}
@@ -185,10 +188,11 @@ export default function HomeScreen(){
                 <CarrosselComponent
                 data={searchdata}
                 />
-                {/*
-                colocar alguns cards para que a pessoa clique se ela quer ver barbearia, cosmeticos e etc
-                */}
+                <ServiceofferComponent/>
+                <DuvidasComponent/>
+                <Footer/>
             </Box>
+            
         </ContainerComponent>
     )
 }

@@ -13,7 +13,6 @@ import {Translator} from '../translate';
 import SmallScreen from './components/smallscreen'
 import BigScreen from './components/bigscreen'
 
-
 export default function HeaderComponent({altura}){
 
     const[OpenList,SetOpenList] = useState(false)

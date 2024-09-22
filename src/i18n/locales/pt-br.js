@@ -39,8 +39,12 @@ const home = {
         'category':'Categoria',
         'description':'Descrição',
         'time':'Tempo',
-        'map':'Mapa'
+        'map':'Localizaçao'
     },
+    'serviceoffer':{
+        'title':'Trabalhe conosco voce tambem',
+        'text':'Quer aumentar a visibilidade do seu estabelecimento e ao mesmo tempo tambem conseguir novos clientes? Inscreva o seu estabelecimento'
+    }
 }
 
 const translation = {

@@ -35,13 +35,16 @@ const home = {
         'label':'Search',
         'placeholder':'Search for services'
     },
-    'carrossel':
-        {
-            'category':'Category',
-            'description':'Description',
-            'time':'Time',
-            'map':'Map'
-        },
+    'carrossel': {
+        'category':'Category',
+        'description':'Description',
+        'time':'Time',
+        'map':'Location'
+    },
+    'serviceoffer':{
+        'title':'Work with us too',
+        'text':'Do you want to increase the visibility of your establishment and at the same time also get new customers? Register your establishment'
+    }
 }
 
 const translation = {

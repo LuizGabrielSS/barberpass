@@ -21,7 +21,6 @@ export default function ContainerComponent({loading=false,status=200,children}){
     return(
         <Box
         height={window.innerHeight}
-        width={window.innerWidth}
         sx={{
             backgroundColor:DefineColor()
         }}
