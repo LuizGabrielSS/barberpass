@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Box, Typography,CssBaseline, Button,List,ListItem,IconButton,Drawer,ListItemText,ListItemIcon,ListItemButton,CardMedia } from '@mui/material'
+import { Box,CssBaseline, Button,IconButton,CardMedia } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -10,82 +10,8 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import ButtonComponent from '../button'
 import {Translator} from '../translate';
-
-function BigScreen({localizacao,navegacao}){
-
-    return(
-        <Box
-        mx={2}
-        sx={{
-            display:"flex",
-            justifyContent:"space-between",
-            alignItems:"center",
-        }}
-        >
-            <ButtonComponent
-            action={()=> navegacao('/precos')}
-            text={
-                <Translator
-                path="header.price"
-                />
-            }
-            variant="outlined"
-            />
-        </Box> 
-    )
-
-}
-
-function SmallScreen({OpenList,SetOpenList,drawerWidth,localizacao,navegacao}){
-
-    return(
-        <Drawer variant="temporary" open={OpenList} onClose={() => SetOpenList(!OpenList)}
-        >
-            <Box sx={{ width: drawerWidth }}>
-                <List>
-                    <SmallItems
-                    Icone={ReorderIcon}
-                    action={()=> navegacao('/precos')}
-                    text={
-                        <Translator
-                        path="header.price"
-                        />
-                    }
-                    />
-                </List>
-            </Box>
-            
-        </Drawer>
-    )
-}
-
-function SmallItems({action,text,Icone}){
-    return(
-        <Box>
-            <ListItem>
-                <ListItemButton
-                onClick={action}
-                >
-                        <ListItemIcon
-                        >
-                            <Icone
-                            />
-                        </ListItemIcon>
-                        <ListItemText>
-                            <Typography
-                            bold
-                            sx={{
-                                color:"#000"
-                            }}
-                            >
-                                {text}
-                            </Typography>
-                        </ListItemText>
-                </ListItemButton>    
-            </ListItem>            
-        </Box>
-    )
-}
+import SmallScreen from './components/smallscreen'
+import BigScreen from './components/bigscreen'
 
 export default function HeaderComponent({altura}){
 

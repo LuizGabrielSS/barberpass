@@ -30,16 +30,34 @@ const login = {
     }
 }
 
+const home = {
+    "search":{
+        "label":"Pesquisar",
+        "placeholder":"Digite o que deseja procurar"
+    },
+    'carrossel':{
+        'category':'Categoria',
+        'description':'Descrição',
+        'time':'Tempo',
+        'map':'Localizaçao'
+    },
+    'serviceoffer':{
+        'title':'Trabalhe conosco voce tambem',
+        'text':'Quer aumentar a visibilidade do seu estabelecimento e ao mesmo tempo tambem conseguir novos clientes? Inscreva o seu estabelecimento'
+    }
+}
+
 const translation = {
     translations: { 
         "header":{
-            "price":"Preços",
+            "price":"Planos",
             "login":"Entrar"
         },
         "components":{
             "noOptionsText":"Nenhuma opção disponível"
         },
-        "login":login
+        "login":login,
+        "home":home
     }
 }
 

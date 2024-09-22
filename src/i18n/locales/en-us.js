@@ -30,16 +30,34 @@ const login = {
     }
 }
 
+const home = {
+    'search':{
+        'label':'Search',
+        'placeholder':'Search for services'
+    },
+    'carrossel': {
+        'category':'Category',
+        'description':'Description',
+        'time':'Time',
+        'map':'Location'
+    },
+    'serviceoffer':{
+        'title':'Work with us too',
+        'text':'Do you want to increase the visibility of your establishment and at the same time also get new customers? Register your establishment'
+    }
+}
+
 const translation = {
     translations: { 
         header:{
-            "price":"Prices",
+            "price":"Plans",
             "login":"Login"
         },
         "components":{
             "noOptionsText":"No options available"
         },
-        "login":login
+        "login":login,
+        "home":home
     }
 }
 
