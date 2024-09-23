@@ -14,7 +14,7 @@ export default function BigScreen({localizacao,navegacao}){
         }}
         >
             <ButtonComponent
-            action={()=> navegacao('/precos')}
+            action={()=> navegacao('/plans')}
             text={
                 <Translator
                 path="header.price"

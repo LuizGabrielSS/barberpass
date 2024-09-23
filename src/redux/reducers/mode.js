@@ -28,7 +28,7 @@ const LightMode = {
     primary:{
         main:ColorsCode.coffe_brown,
         secondary:ColorsCode.cooper,
-        ter:ColorsCode.crisp_white
+        ter:ColorsCode.crisp_white,
     },
     secondary:{
         main:ColorsCode.crisp_white
@@ -36,6 +36,7 @@ const LightMode = {
     background:{
         main:ColorsCode.coffe_brown,
         secondary:ColorsCode.cooper,
+        ter:ColorsCode.taupe_gray,
     },
     text:{
         main:ColorsCode.crisp_white,

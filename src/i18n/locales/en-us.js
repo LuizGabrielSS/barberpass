@@ -47,6 +47,13 @@ const home = {
     }
 }
 
+const plans = {
+    "search":{
+        "label":"Search benefit/plan",
+        "placeholder":"Type the benefit or plan you want"
+    },
+}
+
 const translation = {
     translations: { 
         header:{
@@ -57,7 +64,8 @@ const translation = {
             "noOptionsText":"No options available"
         },
         "login":login,
-        "home":home
+        "home":home,
+        "plans":plans
     }
 }
 

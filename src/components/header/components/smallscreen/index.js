@@ -13,7 +13,7 @@ export default function SmallScreen({OpenList,SetOpenList,drawerWidth,localizaca
                 <List>
                     <SmallItems
                     Icone={TableViewIcon}
-                    action={()=> navegacao('/precos')}
+                    action={()=> navegacao('/plans')}
                     text={
                         <Translator
                         path="header.price"
