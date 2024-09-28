@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Box} from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import InputComponent from '../../../../components/input/login'
+import InputComponent from '../../../../components/input/complex'
 import {Translator} from '../../../../components/translate'
 import NavigationButtons from '../navigation'
 

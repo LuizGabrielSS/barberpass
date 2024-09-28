@@ -22,6 +22,15 @@ export default function BigScreen({localizacao,navegacao}){
             }
             variant="outlined"
             />
+            <ButtonComponent
+            action={()=> navegacao('/contact')}
+            text={
+                <Translator
+                path="header.contact"
+                />
+            }
+            variant="outlined"
+            />
         </Box> 
     )
 

@@ -54,18 +54,46 @@ const plans = {
     },
 }
 
+const contact = {
+    "name":{
+        "label":"Nome",
+        "placeholder":"Digite o seu nome"
+    },
+    "email":{
+        "label":"Email",
+        "placeholder":"Digite o seu email"
+    },
+    "number":{
+        "label":"Celular/Telefone",
+        "placeholder":"Digite o seu número para contato"
+    },
+    "modalidade":{
+        "label":"Modalidade",
+        "placeholder":"Preencha com a modalidade que prefere"
+    },
+    "mensagem":{
+        "label":"Mensagem",
+        "placeholder":"Digite a sua mensagem"
+    },
+    "button":{
+        "send":"Enviar"
+    }
+}
+
 const translation = {
     translations: { 
         "header":{
             "price":"Planos",
-            "login":"Entrar"
+            "login":"Entrar",
+            "contact":"Contato"
         },
         "components":{
             "noOptionsText":"Nenhuma opção disponível"
         },
         "login":login,
         "home":home,
-        "plans":plans
+        "plans":plans,
+        "contact":contact
     }
 }
 

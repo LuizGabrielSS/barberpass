@@ -41,7 +41,7 @@ export default function RoutesFunction(){
                     }
                 />
                 <Route
-                    path="/plans"
+                    path="/contact"
                     element={
                         <ContactScreen/>
                     }

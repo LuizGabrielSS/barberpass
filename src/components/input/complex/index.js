@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { Box, TextField,FormControl,FormHelperText, IconButton } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
-export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false}){
+export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false}){
 
     const[showPassword,setshowPassword] = useState(false)
 
@@ -55,6 +55,7 @@ export default function InputComponent({password=false,placeholder,label,informa
                     ? type
                     : 'password'
                 }
+                multiline={multiline}
                 onChange={(value) => input_info(value.target.value)}
                 defaultValue={informacao}
                 slotProps={{
