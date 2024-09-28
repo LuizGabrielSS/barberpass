@@ -47,17 +47,53 @@ const home = {
     }
 }
 
+const plans = {
+    "search":{
+        "label":"Search benefit/plan",
+        "placeholder":"Type the benefit or plan you want"
+    },
+}
+
+const contact = {
+    "name":{
+        "label":"Name",
+        "placeholder":"Type your name"
+    },
+    "email":{
+        "label":"Email",
+        "placeholder":"Type your email"
+    },
+    "number":{
+        "label":"Cellphone/Phone",
+        "placeholder":"Type your contact number"
+    },
+    "modalidade":{
+        "label":"Mode",
+        "placeholder":"Fill in with your preferred mode"
+    },
+    "mensagem":{
+        "label":"Message",
+        "placeholder":"Type your message"
+    },
+    "button":{
+        "send":"Send"
+    }
+}
+
 const translation = {
     translations: { 
         header:{
             "price":"Plans",
-            "login":"Login"
+            "login":"Login",
+            "contact":"Contact"
         },
         "components":{
             "noOptionsText":"No options available"
         },
         "login":login,
-        "home":home
+        "home":home,
+        "plans":plans,
+        "contact":contact
     }
 }
 

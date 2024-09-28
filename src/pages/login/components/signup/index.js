@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Box} from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import InputComponent from '../../../../components/input/login'
+import InputComponent from '../../../../components/input/complex'
 import AutoCompleteComponent from '../../../../components/autocomplete'
 import {Translator} from '../../../../components/translate'
 import NavigationButtons from '../navigation'
@@ -11,7 +11,7 @@ import validate_field from '../validation'
 
 const options_modalidades = [
     {'id':'1','label':'cliente'},
-    {'id':'1','label':'prestador de serviço'},
+    {'id':'2','label':'prestador de serviço'},
 ]
 
 export default function SignUpComponent({setscreen,state,dispatch,altura}){

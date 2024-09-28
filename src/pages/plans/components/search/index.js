@@ -9,7 +9,7 @@ export default function SearchComponent({data,setsearchdata,label,placeholder}){
     const searchFunction = (text) => {
         const updatedData = data.filter((item) => {
             const text_data = text.toUpperCase()
-            const item_data = `${item.nome.toUpperCase()} and ${item.descricao.toUpperCase()} and ${item.categoria.toUpperCase()}  and ${item.endereco.toUpperCase()}`
+            const item_data = `${item.nome.toUpperCase()} and ${item.price.toUpperCase()}`
         return item_data.indexOf(text_data) > -1
         });
         setsearchdata(updatedData)
