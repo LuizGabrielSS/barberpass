@@ -14,7 +14,7 @@ const options_modalidades = [
     {'id':'2','label':'prestador de serviço'},
 ]
 
-export default function SignUpComponent({setscreen,state,dispatch,altura}){
+export default function SignUpComponent({setscreen,state,dispatch,altura,setLoading,setStatus,dispatchDialog}){
 
     const[buttonstatus,setbuttonstatus] = useState(false)
 

@@ -8,7 +8,9 @@ import NavigationButtons from '../navigation'
 
 import validate_field from '../validation'
 
-export default function LoginComponent({setscreen,state,dispatch}){
+import loginRequest from '../../requests/login'
+
+export default function LoginComponent({setscreen,state,dispatch,setLoading,setStatus,dispatchDialog}){
 
     const { t } = useTranslation()
 
@@ -52,7 +54,15 @@ export default function LoginComponent({setscreen,state,dispatch}){
                 />
             </Box>
             <NavigationButtons
-            action={null}
+            action={() => 
+                loginRequest(
+                    setLoading,
+                    setStatus,
+                    state.email,
+                    state.password,
+                    dispatchDialog,
+                )
+            }
             screen='login'
             setscreen={setscreen}
             buttonstatus={buttonstatus}

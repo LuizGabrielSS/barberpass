@@ -8,7 +8,7 @@ import NavigationButtons from '../navigation'
 
 import validate_field from '../validation'
 
-export default function PasswordComponent({setscreen,state,dispatch}){
+export default function PasswordComponent({setscreen,state,dispatch,setLoading,setStatus,dispatchDialog}){
 
     const { t } = useTranslation()
 

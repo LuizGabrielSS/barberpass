@@ -8,12 +8,14 @@ import HomeScreen from '../pages/home'
 import LoginScreen from '../pages/login'
 import PlansScreen from '../pages/plans'
 import ContactScreen from '../pages/contact'
+import ConfigScreen from '../pages/config'
+import PerfilScreen from '../pages/perfil'
 
 export default function RoutesFunction(){
 
     return(
         <BrowserRouter
-        basename='/barberpass'
+        basename={process.env.REACT_APP_URL}
         >
             <Routes>
                 <Route
@@ -44,6 +46,18 @@ export default function RoutesFunction(){
                     path="/contact"
                     element={
                         <ContactScreen/>
+                    }
+                />
+                <Route
+                    path="/config"
+                    element={
+                        <ConfigScreen/>
+                    }
+                />
+                <Route
+                    path="/perfil"
+                    element={
+                        <PerfilScreen/>
                     }
                 />
             </Routes>

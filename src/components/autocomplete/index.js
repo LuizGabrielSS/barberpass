@@ -29,6 +29,10 @@ export default function AutocompleteComponent({informacao,setinformacao,options,
                 label={label} 
                 variant="filled"
                 onChange={(event,value) => input_info(value)}
+                InputProps={{
+                    ...params.InputProps,
+                    style: { color: 'black' }
+                }}
                 />
             }
             />

@@ -38,42 +38,42 @@ export default function InputComponent({password=false,placeholder,label,informa
 
     return(
         <Box
-        m={1}
+            m={1}
+            width="100%"
         >
             <FormControl 
-            error={status}
-            variant="standard"
+                error={status}
+                variant="standard"
+                fullWidth
             >
                 <TextField
-                error={status}
-                fullWidth
-                placeholder={placeholder}
-                variant="filled"
-                size="small"
-                label={label}
-                type={showPassword 
-                    ? type
-                    : 'password'
-                }
-                multiline={multiline}
-                onChange={(value) => input_info(value.target.value)}
-                defaultValue={informacao}
-                slotProps={{
-                    input:{
-                        endAdornment:
-                            <>
-                            {password
-                            ? <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={() => setshowPassword(!showPassword)}
-                            edge="end"
+                    error={status}
+                    fullWidth
+                    placeholder={placeholder}
+                    variant="filled"
+                    label={label}
+                    type={showPassword 
+                        ? type
+                        : 'password'
+                    }
+                    multiline={multiline}
+                    onChange={(value) => input_info(value.target.value)}
+                    defaultValue={informacao}
+                    InputProps={{
+                        style: { color: 'black' },
+                        endAdornment: password ? (
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={() => setshowPassword(!showPassword)}
+                                edge="end"
+                                sx={{
+                                    color: 'text.secondary'
+                                }}
                             >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
-                            : null}
-                            </>
-                    }
-                }}
+                        ) : null
+                    }}
                 />
             </FormControl>
             {

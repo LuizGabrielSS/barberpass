@@ -12,11 +12,16 @@ const ColorsCode = {
 const DarkMode = {
     mode:'dark',
     primary:{
-        main:ColorsCode.cooper
+        main:ColorsCode.coffe_brown,
+        secondary:ColorsCode.cooper,
+    },
+    secondary:{
+        main:ColorsCode.taupe_gray
     },
     text:{
-        main:ColorsCode.taupe_gray,
-        secondary:ColorsCode.crisp_white,
+        main:ColorsCode.mustard_yellow,
+        secondary:ColorsCode.coffe_brown,
+        ter:'#000',
     },
     button:{
         main:ColorsCode.teal
@@ -45,10 +50,10 @@ const LightMode = {
     },
 }
 
-export const ModeSlice = createSlice({
+export const modeSlice = createSlice({
     name:'mode',
     initialState:{
-        darkmode:LightMode
+        darkmode:DarkMode
     },
     reducers:{
         ChangeMode: (state, action) => {
@@ -57,6 +62,6 @@ export const ModeSlice = createSlice({
     }
 })
 
-export const {ChangeMode} = ModeSlice.actions
+export const {ChangeMode} = modeSlice.actions
 
-export default ModeSlice.reducer
+export default modeSlice.reducer

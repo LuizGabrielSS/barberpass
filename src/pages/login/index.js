@@ -2,6 +2,7 @@ import React, {useReducer, useState,useEffect} from 'react'
 import {Box} from '@mui/material'
 
 import ContainerComponent from '../../components/container'
+import DialogComponent from '../../components/dialog'
 
 import LoginComponent from './components/login'
 import PasswordComponent from './components/password'
@@ -23,6 +24,12 @@ const reducer = (state,action) => {
     }
 }
 
+const initialStateDialog = {
+    'open':false,
+    'title':'',
+    'text':''
+}
+
 export default function LoginScreen(){
 
     const fundo = "/background/login.png"
@@ -31,9 +38,15 @@ export default function LoginScreen(){
 
     const[state,dispatch] = useReducer(reducer,initialState)
 
+    const[stateDialog,dispatchDialog] = useReducer(reducer,initialStateDialog)
+
     const [altura, setAltura] = useState(window.innerHeight);
     
     const [largura, setLargura] = useState(window.innerWidth);
+
+    const[Loading,setLoading] = useState(false)
+
+    const[Status,setStatus] = useState(200)
 
     useEffect(() => {
         const handleResize = () => {
@@ -51,9 +64,10 @@ export default function LoginScreen(){
 
     return(
         <ContainerComponent
+        loading={Loading}
+        status={Status}
         >
             <Box
-            // height={altura*87/100}
             sx={{
                 height: altura*87/100,
                 backgroundImage:`url(${process.env.PUBLIC_URL}${fundo})`,
@@ -71,18 +85,23 @@ export default function LoginScreen(){
                     borderRadius:"10%",
                     borderWidth:'2px',
                     borderStyle:"solid",
-                    borderColor:'rgb(200, 200, 200)',
+                    borderColor:'primary.main',
                     backgroundColor:"#fff"
                 }}
                 >
+                    <DialogComponent
+                    open={stateDialog.open}
+                    title={stateDialog.title}
+                    text={stateDialog.text}
+                    />
                     {
                         scren === 'login'
-                        ?  <LoginComponent setscreen={setscreen} state={state} dispatch={dispatch}/>
+                        ?  <LoginComponent setscreen={setscreen} state={state} dispatch={dispatch} setLoading={setLoading} setStatus={setStatus} dispatchDialog={dispatchDialog}/>
                         :   <>
                             {
                                 scren === 'password'
-                                ? <PasswordComponent setscreen={setscreen} state={state} dispatch={dispatch}/>
-                                : <SignUpComponent setscreen={setscreen} altura={altura} state={state} dispatch={dispatch}/>
+                                ? <PasswordComponent setscreen={setscreen} state={state} dispatch={dispatch} setLoading={setLoading} setStatus={setStatus} dispatchDialog={dispatchDialog}/>
+                                : <SignUpComponent setscreen={setscreen} altura={altura} state={state} dispatch={dispatch} setLoading={setLoading} setStatus={setStatus} dispatchDialog={dispatchDialog}/>
                             }
                             </>
                     }

@@ -80,6 +80,18 @@ const contact = {
     }
 }
 
+const configs = {
+    "mode":{
+        "dark":"Modo escuro",
+        "light":"Modo claro"
+    },
+    "title":"Configurações",
+    "translate":{
+        "title":"Traduções",
+        "text":"Escolha o idioma que deseja utilizar"
+    }
+}
+
 const translation = {
     translations: { 
         "header":{
@@ -93,7 +105,8 @@ const translation = {
         "login":login,
         "home":home,
         "plans":plans,
-        "contact":contact
+        "contact":contact,
+        "config":configs
     }
 }
 
