@@ -1,12 +1,15 @@
 import React, { useState,useEffect } from 'react'
 import { Box, TextField,FormControl,FormHelperText, IconButton } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { useSelector } from 'react-redux';
 
-export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false}){
+export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false,onDark=false}){
 
     const[showPassword,setshowPassword] = useState(false)
 
     const[status,setstatus] = useState(false)
+
+    const theme = useSelector((state) => state.mode.darkmode);
 
     useEffect(() => {
         if(password === false){
@@ -38,42 +41,44 @@ export default function InputComponent({password=false,placeholder,label,informa
 
     return(
         <Box
-        m={1}
+            m={1}
+            width="100%"
         >
             <FormControl 
-            error={status}
-            variant="standard"
+                error={status}
+                variant="standard"
+                fullWidth
             >
                 <TextField
-                error={status}
-                fullWidth
-                placeholder={placeholder}
-                variant="filled"
-                size="small"
-                label={label}
-                type={showPassword 
-                    ? type
-                    : 'password'
-                }
-                multiline={multiline}
-                onChange={(value) => input_info(value.target.value)}
-                defaultValue={informacao}
-                slotProps={{
-                    input:{
-                        endAdornment:
-                            <>
-                            {password
-                            ? <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={() => setshowPassword(!showPassword)}
-                            edge="end"
+                    error={status}
+                    fullWidth
+                    placeholder={placeholder}
+                    variant="filled"
+                    label={label}
+                    type={showPassword 
+                        ? type
+                        : 'password'
+                    }
+                    multiline={multiline}
+                    onChange={(value) => input_info(value.target.value)}
+                    defaultValue={informacao}
+                    InputProps={{
+                        style: { 
+                            color: theme.mode === "dark" && onDark ? 'white' : 'black',
+                        },
+                        endAdornment: password ? (
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={() => setshowPassword(!showPassword)}
+                                edge="end"
+                                sx={{
+                                    color: 'text.secondary'
+                                }}
                             >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
-                            : null}
-                            </>
-                    }
-                }}
+                        ) : null
+                    }}
                 />
             </FormControl>
             {

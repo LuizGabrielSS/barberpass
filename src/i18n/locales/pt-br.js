@@ -80,6 +80,44 @@ const contact = {
     }
 }
 
+const configs = {
+    "mode":{
+        "dark":"Modo escuro",
+        "light":"Modo claro"
+    },
+    "title":"Configurações",
+    "translate":{
+        "title":"Traduções",
+        "text":"Escolha o idioma que deseja utilizar"
+    }
+}
+
+const perfil = {
+    "title":"Perfil",
+    "user":{
+        "label":"Usuário",
+        "placeholder":"Digite o seu usuário"
+    },
+    "name":{
+        "label":"Nome",
+        "placeholder":"Digite o seu nome"
+    },
+    "email":{
+        "label":"Email",
+        "placeholder":"Digite o seu email"
+    },
+    "number":{
+        "label":"Celular/Telefone",
+        "placeholder":"Digite o seu número para contato"
+    },
+    "modalidade":{
+        "label":"Modalidade",
+        "placeholder":"Preencha com a modalidade que prefere"
+    },
+    "save":"Salvar",
+    "return":"Apagar mudanças"
+}
+
 const translation = {
     translations: { 
         "header":{
@@ -93,7 +131,9 @@ const translation = {
         "login":login,
         "home":home,
         "plans":plans,
-        "contact":contact
+        "contact":contact,
+        "config":configs,
+        "perfil":perfil
     }
 }
 

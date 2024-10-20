@@ -12,6 +12,7 @@ import ButtonComponent from '../button'
 import {Translator} from '../translate';
 import SmallScreen from './components/smallscreen'
 import BigScreen from './components/bigscreen'
+import UserComponent from './components/user'
 
 export default function HeaderComponent({altura}){
 
@@ -115,14 +116,8 @@ export default function HeaderComponent({altura}){
                     }}
                     mx={1}
                     >
-                        <ButtonComponent
-                        action={()=> navegacao('/login')}
-                        text={
-                            <Translator
-                            path="header.login"
-                            />
-                        }
-                        variant='contained'
+                        <UserComponent
+                        navegacao={navegacao}
                         />
                     </Box>
                 </Box>

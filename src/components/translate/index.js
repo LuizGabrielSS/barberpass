@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Avatar, Box, MenuItem, Select } from '@mui/material'
+import { Avatar, Box, MenuItem, Select,Typography } from '@mui/material'
 
 import UsaVSG from "./usa.svg";
 import BraVSG from "./brasil.svg"
 
-function ItemComponent({Imagem}){
+function ItemComponent({Imagem,idioma}){
 
     return(
         <Box
@@ -14,11 +14,18 @@ function ItemComponent({Imagem}){
         justifyContent="center"
         m={1}
         >
+            <Box
+            m={1}
+            >
             <Avatar 
             src={Imagem} 
             alt="SVG"
             variant="square"
-            />  
+            />
+            </Box>
+            <Typography>
+                {idioma}
+            </Typography>
         </Box>
     )
 
@@ -34,7 +41,7 @@ export default function TranslateFunction(){
 
     const { i18n } = useTranslation()
 
-    const[Value,SetValue] = useState(null)
+    const[Value,SetValue] = useState("pt-BR")
   
     function handleChangeLanguage(language) {
       i18n.changeLanguage(language)
@@ -43,11 +50,11 @@ export default function TranslateFunction(){
 
     return(
         <Box
-        // width={window.innerWidth> 420 ? (window.innerWidth/8) : (window.innerWidth/3)}
+        width={window.innerWidth> 420 ? (window.innerWidth/8) : (window.innerWidth/3)}
         m={1}
         >
             <Select
-            defaultValue="pt-BR"
+            defaultValue={Value}
             autoWidth
             onChange={(value) => handleChangeLanguage(value.target.value)}
             variant="standard"
@@ -57,6 +64,7 @@ export default function TranslateFunction(){
                 >
                     <ItemComponent
                     Imagem={UsaVSG}
+                    idioma="English - USA"
                     />
                 </MenuItem>
                 <MenuItem
@@ -64,6 +72,7 @@ export default function TranslateFunction(){
                 >
                     <ItemComponent
                     Imagem={BraVSG}
+                    idioma="Portugues - Brasil"
                     />
                 </MenuItem>
             </Select>

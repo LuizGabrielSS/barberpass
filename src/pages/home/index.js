@@ -11,11 +11,7 @@ import Footer from '../../components/footer'
 import {Translator} from '../../components/translate'
 import EmptyComponent from '../../components/empty'
 
-export default function HomeScreen(){
-
-    const { t } = useTranslation()
-
-    const[data,setdata] = useState([
+const data_init = [
     {
         id:1,
         nome:'Barbearia do Zé',
@@ -176,7 +172,13 @@ export default function HomeScreen(){
         funcionamento: '08h-19h',
         endereco: 'Rua da Saúde, 1600'
     }
-    ])
+    ]
+
+export default function HomeScreen(){
+
+    const { t } = useTranslation()
+
+    const[data,setdata] = useState(data_init)
 
     const [searchdata,setsearchdata] = useState(data)
 

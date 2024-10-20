@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Box} from '@mui/material'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom';
 
 import InputComponent from '../../../../components/input/complex'
 import {Translator} from '../../../../components/translate'
@@ -8,7 +9,9 @@ import NavigationButtons from '../navigation'
 
 import validate_field from '../validation'
 
-export default function LoginComponent({setscreen,state,dispatch}){
+import loginRequest from '../../requests/login'
+
+export default function LoginComponent({setscreen,state,dispatch,setLoading,setStatus,dispatchDialog}){
 
     const { t } = useTranslation()
 
@@ -17,6 +20,8 @@ export default function LoginComponent({setscreen,state,dispatch}){
     useEffect(() => {
         validate_field(state,'login',setbuttonstatus)
     },[state])
+
+    const navegacao = useNavigate()
 
     return(
         <>
@@ -52,7 +57,16 @@ export default function LoginComponent({setscreen,state,dispatch}){
                 />
             </Box>
             <NavigationButtons
-            action={null}
+            action={() => 
+                loginRequest(
+                    setLoading,
+                    setStatus,
+                    state.email,
+                    state.password,
+                    dispatchDialog,
+                    navegacao
+                )
+            }
             screen='login'
             setscreen={setscreen}
             buttonstatus={buttonstatus}
