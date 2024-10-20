@@ -1,11 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
 
 import modeSlice from './reducers/mode'
-import authslice from './reducers/auth'
+import authSlice from './reducers/auth'
+import userSlice from './reducers/user'
 
 export default configureStore({
     reducer: {
         mode: modeSlice,
-        auth: authslice
+        auth: authSlice,
+        user: userSlice
     },
   })

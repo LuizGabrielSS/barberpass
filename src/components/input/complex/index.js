@@ -1,12 +1,15 @@
 import React, { useState,useEffect } from 'react'
 import { Box, TextField,FormControl,FormHelperText, IconButton } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { useSelector } from 'react-redux';
 
-export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false}){
+export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false,onDark=false}){
 
     const[showPassword,setshowPassword] = useState(false)
 
     const[status,setstatus] = useState(false)
+
+    const theme = useSelector((state) => state.mode.darkmode);
 
     useEffect(() => {
         if(password === false){
@@ -60,7 +63,9 @@ export default function InputComponent({password=false,placeholder,label,informa
                     onChange={(value) => input_info(value.target.value)}
                     defaultValue={informacao}
                     InputProps={{
-                        style: { color: 'black' },
+                        style: { 
+                            color: theme.mode === "dark" && onDark ? 'white' : 'black',
+                        },
                         endAdornment: password ? (
                             <IconButton
                                 aria-label="toggle password visibility"

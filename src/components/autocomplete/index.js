@@ -1,9 +1,12 @@
 import React from 'react'
 import {Autocomplete, Box,TextField} from '@mui/material'
+import { useSelector } from 'react-redux';
 
 import {Translator} from '../translate'
 
-export default function AutocompleteComponent({informacao,setinformacao,options,label,placeholder,label_element}){
+export default function AutocompleteComponent({informacao,setinformacao,options,label,placeholder,label_element,onDark=false}){
+
+    const theme = useSelector((state) => state.mode.darkmode);
 
     function input_info(valor){
         setinformacao({
@@ -31,7 +34,9 @@ export default function AutocompleteComponent({informacao,setinformacao,options,
                 onChange={(event,value) => input_info(value)}
                 InputProps={{
                     ...params.InputProps,
-                    style: { color: 'black' }
+                    style: { 
+                        color: theme.mode === "dark" && onDark ? 'white' : 'black',
+                    }
                 }}
                 />
             }

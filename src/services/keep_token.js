@@ -1,6 +1,7 @@
 import store from '../redux'
 import CryptoJS from 'crypto-js'
-import { setToken,setRefreshToken,setUser } from '../redux/reducers/auth'
+import { setToken,setRefreshToken } from '../redux/reducers/auth'
+import { setUser, setEmail, setNumber, setModalidade, setName, setPicture } from '../redux/reducers/user'
 
 export function keep(token,refresh,user){
 
@@ -13,7 +14,12 @@ export function keep(token,refresh,user){
     const secrets = {
         "token": token_encrypted,
         "refresh": refresh_encrypted,
-        "user":user_encrypted
+        "user":user_encrypted,
+        "email": store.getState().user.email,
+        "number": store.getState().user.number,
+        "modalidade": store.getState().user.modalidade,
+        "name": store.getState().user.name,
+        "picture": store.getState().user.picture
     }
 
     const all_secrets = CryptoJS.AES.encrypt(String(secrets),process.env.REACT_APP_SECRET).toString()
@@ -54,9 +60,22 @@ export function recovery(){
 
             store.dispatch(setUser(user))
 
+            store.dispatch(setEmail(decryptedData.email))
+
+            store.dispatch(setNumber(decryptedData.number))
+
+            store.dispatch(setModalidade(decryptedData.modalidade))
+
+            store.dispatch(setName(decryptedData.name))
+
+            store.dispatch(setPicture(decryptedData.picture))
+
+            // adicionar uma funcao para buscar as informacoes do usuario na API
+
             return true
         
         }else{
+
             return false
         }
 
@@ -73,6 +92,6 @@ export function clean(){
 
     store.dispatch(setUser(null))
 
-    return true
+    return window.location = `${process.env.REACT_APP_URL}/login`
 
 }

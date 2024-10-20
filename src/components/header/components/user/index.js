@@ -94,7 +94,7 @@ export default function UserComponent({navegacao}){
     return(
         <Box>
             {
-                store.getState().auth.user === null
+                store.getState().user.user === null
                 ?   <ButtonComponent
                     action={()=> navegacao('/login')}
                     text={
@@ -105,7 +105,7 @@ export default function UserComponent({navegacao}){
                     variant='contained'
                     />
                 :   <UserLogged
-                        user={store.getState().auth.user}
+                        user={store.getState().user.user}
                         navegacao={navegacao}
                     />
             }

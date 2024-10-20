@@ -23,6 +23,11 @@ const DarkMode = {
         secondary:ColorsCode.coffe_brown,
         ter:'#000',
     },
+    background:{
+        main:ColorsCode.coffe_brown,
+        secondary:ColorsCode.cooper,
+        ter:ColorsCode.taupe_gray,
+    },
     button:{
         main:ColorsCode.teal
     },
@@ -53,7 +58,7 @@ const LightMode = {
 export const modeSlice = createSlice({
     name:'mode',
     initialState:{
-        darkmode:DarkMode
+        darkmode:LightMode
     },
     reducers:{
         ChangeMode: (state, action) => {

@@ -92,6 +92,32 @@ const configs = {
     }
 }
 
+const perfil = {
+    "title":"Profile",
+    "user":{
+        "label":"User",
+        "placeholder":"Type your user"
+    },
+    "name":{
+        "label":"Name",
+        "placeholder":"Type your name"
+    },
+    "email":{
+        "label":"Email",
+        "placeholder":"Type your email"
+    },
+    "number":{
+        "label":"Cellphone/Phone",
+        "placeholder":"Type your contact number"
+    },
+    "modalidade":{
+        "label":"Mode",
+        "placeholder":"Fill in with your preferred mode"
+    },
+    "save":"Save",
+    "return":"Discard changes"
+}
+
 const translation = {
     translations: { 
         header:{
@@ -106,7 +132,8 @@ const translation = {
         "home":home,
         "plans":plans,
         "contact":contact,
-        "config":configs
+        "config":configs,
+        "perfil":perfil
     }
 }
 

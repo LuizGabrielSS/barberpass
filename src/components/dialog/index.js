@@ -3,7 +3,7 @@ import {Box, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Typogra
 
 import ButtonComponent from '../button'
 
-export default function DialogComponent({open,title,text}){
+export default function DialogComponent({open,title,text,action}){
 
     const[OpenDialog,SetOpenDialog] = useState(false)
 
@@ -48,7 +48,11 @@ export default function DialogComponent({open,title,text}){
                 </DialogContent>
                 <DialogActions>
                     <ButtonComponent
-                    action={() => SetOpenDialog(false)}
+                    action={() => {
+                        SetOpenDialog(false);
+                        action()
+                        }
+                    }
                     color='primary'
                     variant='contained'
                     text='OK'

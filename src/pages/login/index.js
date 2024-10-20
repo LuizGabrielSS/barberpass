@@ -27,7 +27,8 @@ const reducer = (state,action) => {
 const initialStateDialog = {
     'open':false,
     'title':'',
-    'text':''
+    'text':'',
+    'action':null
 }
 
 export default function LoginScreen(){

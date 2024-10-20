@@ -1,6 +1,9 @@
 //Externas
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom'
+
+//redux
+import store from '../redux'
 
 //screens
 import NotFoundScreen from '../pages/notfound'
@@ -10,6 +13,21 @@ import PlansScreen from '../pages/plans'
 import ContactScreen from '../pages/contact'
 import ConfigScreen from '../pages/config'
 import PerfilScreen from '../pages/perfil'
+
+function ProtectRoute({children}){
+
+    const token = store.getState().auth.token
+
+    if(token === null || token === undefined){
+        return(
+            <Navigate to="/login"/>
+        )
+    }
+    else{
+        return children
+    }
+    
+}
 
 export default function RoutesFunction(){
 
@@ -42,6 +60,7 @@ export default function RoutesFunction(){
                         <PlansScreen/>
                     }
                 />
+                
                 <Route
                     path="/contact"
                     element={
@@ -51,13 +70,17 @@ export default function RoutesFunction(){
                 <Route
                     path="/config"
                     element={
-                        <ConfigScreen/>
+                        <ProtectRoute>
+                            <ConfigScreen/>
+                        </ProtectRoute>
                     }
                 />
                 <Route
                     path="/perfil"
                     element={
-                        <PerfilScreen/>
+                        <ProtectRoute>
+                            <PerfilScreen/>
+                        </ProtectRoute>
                     }
                 />
             </Routes>

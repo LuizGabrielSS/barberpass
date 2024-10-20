@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '../redux'
-import { setToken, setRefreshToken,setUser } from '../redux/reducers/auth'
+import { setToken, setRefreshToken } from '../redux/reducers/auth'
+import { setUser } from '../redux/reducers/user'
 import { keep,recovery } from './keep_token'
 
 const url = process.env.REACT_APP_API_URL
