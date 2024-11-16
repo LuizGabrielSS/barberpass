@@ -31,6 +31,15 @@ export default function BigScreen({localizacao,navegacao}){
             }
             variant="outlined"
             />
+            <ButtonComponent
+            action={()=> navegacao('/map')}
+            text={
+                <Translator
+                path="header.map"
+                />
+            }
+            variant="outlined"
+            />
         </Box> 
     )
 

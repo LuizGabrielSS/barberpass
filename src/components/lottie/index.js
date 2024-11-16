@@ -18,7 +18,7 @@ export default function LottieComponent({gif}){
         justifyContent="center"
         alignSelf="center"
         >
-            <Lottie options={defaultOptions} height={window.innerHeight*8/10}/>
+            <Lottie options={defaultOptions} height={window.innerHeight*6/10}/>
         </Box>
     )
 }

@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Store from './redux'
 import { Provider } from "react-redux";
 import './i18n'
+import 'leaflet/dist/leaflet.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

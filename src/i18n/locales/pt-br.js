@@ -123,7 +123,8 @@ const translation = {
         "header":{
             "price":"Planos",
             "login":"Entrar",
-            "contact":"Contato"
+            "contact":"Contato",
+            "map":"Mapa"
         },
         "components":{
             "noOptionsText":"Nenhuma opção disponível"

@@ -5,6 +5,7 @@ import { Box,List, Typography,ListItem,Drawer,ListItemText,ListItemIcon,ListItem
 //icones
 import TableViewIcon from '@mui/icons-material/TableView';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 
 //Internos
 import {Translator} from '../../../translate';
@@ -31,6 +32,15 @@ export default function SmallScreen({OpenList,SetOpenList,drawerWidth,localizaca
                     text={
                         <Translator
                         path="header.contact"
+                        />
+                    }
+                    />
+                    <SmallItems
+                    Icone={AddLocationAltIcon}
+                    action={()=> navegacao('/map')}
+                    text={
+                        <Translator
+                        path="header.map"
                         />
                     }
                     />
