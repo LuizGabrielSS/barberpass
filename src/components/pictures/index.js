@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import { Box,Avatar} from '@mui/material'
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 import ChangeImage from './change'
 
@@ -44,6 +43,8 @@ export default function PictureComponent({picture,square,changeOption=false,disp
             sx={{
                 width: window.innerWidth> 420 ?"50%" :"70%",
                 height: window.innerWidth> 420 ?"50%" :"70%",
+                borderRadius: "50%",
+                border: "2px solid #663300"
             }}
             variant={square ? 'square' : 'circular'}
             />

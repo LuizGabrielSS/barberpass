@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Box, Typography,Rating,Avatar } from '@mui/material'
+import { Box, Typography,Rating,Avatar, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 import { styled } from '@mui/material/styles';
 
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
@@ -9,6 +9,8 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 
 import ButtonComponent from '../../../../../../components/button'
+import InputComponent from '../../../../../../components/input/simple'
+import store from '../../../../../../redux'
 
 const customIcons = {
     1: {
@@ -156,11 +158,70 @@ function ItemComponent({item}){
     )
 }
 
+function AvaliarComponent({open,setopen}){
+
+    const[informacao,setinformacao] = useState(null)
+
+    const[avalicao,setavalicao] = useState(0)
+
+    return(
+        <Dialog
+        open={open}
+        >
+            <DialogTitle>Avalie o prestador de serviço</DialogTitle>
+            <DialogContent>
+                    <Box
+                    m={1}>
+                        <InputComponent
+                        informacao={informacao}
+                        setinformacao={setinformacao}
+                        label="Comentario"
+                        placeholder="Descreva sua experiencia"
+                        multiline={true}
+                        />
+                    </Box>
+                    <Box
+                    m={1}>
+                        <StyledRating
+                        name="customized-icons"
+                        IconContainerComponent={IconContainer}
+                        highlightSelectedOnly
+                        onChange={(value) => setavalicao(value.target.value)}
+                        />
+                    </Box>
+            </DialogContent>
+            <DialogActions>
+                <ButtonComponent
+                text="Avaliar"
+                action={() => setopen(!open)}
+                color='success'
+                variant='contained'
+                status={
+                    informacao === null || avalicao === 0
+                    ? true
+                    : informacao.replace(" ","").length === 0 || avalicao === 0
+                    ? true
+                    : false
+                }
+                />
+                <ButtonComponent
+                text="Fechar"
+                action={() => setopen(!open)}
+                color='error'
+                variant='contained'
+                />
+            </DialogActions>
+        </Dialog>
+    )
+}
+
 export default function AvalicoesComponent({avaliacoes}){
 
     const[rate,setrate] = useState(1)
 
     const[open,setopen] = useState(false)
+
+    const[openAvaliar,setopenAvaliar] = useState(false)
 
     useEffect(() => {
         let sum = 0
@@ -172,6 +233,10 @@ export default function AvalicoesComponent({avaliacoes}){
 
     return(
         <Box>
+            <AvaliarComponent
+            open={openAvaliar}
+            setopen={setopenAvaliar}
+            />
             <Box
                 m={3}
                 display="flex"
@@ -214,6 +279,12 @@ export default function AvalicoesComponent({avaliacoes}){
                 m={1}
                 >
                     <ButtonComponent
+                    action={() => setopenAvaliar(!openAvaliar)}
+                    text="Avaliar"
+                    color='primary.main'
+                    status={store.getState().user.user === null}
+                    />
+                    <ButtonComponent
                     action={() => setopen(!open)}
                     text={
                         open
@@ -241,7 +312,7 @@ export default function AvalicoesComponent({avaliacoes}){
                             }
                         </Box>
                     : null
-            }
+                }
         </Box>
     )
 

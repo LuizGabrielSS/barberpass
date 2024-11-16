@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Divider, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -79,7 +79,6 @@ export default function EspecialidadesComponent({especialidades}){
         <Box
         m={2}
         >
-            <Divider/>
             <Box
             m={3}
             display="flex"
@@ -110,7 +109,6 @@ export default function EspecialidadesComponent({especialidades}){
                             
                         </Box>
                     ))}
-            <Divider/>
         </Box>
     )
 

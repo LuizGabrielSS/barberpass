@@ -10,11 +10,11 @@ export default function GaleriaComponent({galeria}){
 
     return(
         <Box
-        sx={{
-            display:"flex",
-            flexDirection:'column',
-            flexWrap:'wrap'
-        }}
+        // sx={{
+        //     display:"flex",
+        //     flexDirection:'column',
+        //     flexWrap:'wrap'
+        // }}
         >
             <Box
             display='flex'
@@ -56,13 +56,14 @@ export default function GaleriaComponent({galeria}){
             </Box>
             {
                 open
-                ?   <ImageList variant="masonry" cols={3} gap={8}>
+                ?   <ImageList variant="masonry" cols={2} gap={8}>
                         {galeria.map((item) => (
                             <ImageListItem key={item.id}>
                                 <img
                                     srcSet={`${item.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                     src={`${item.image}?w=248&fit=crop&auto=format`}
                                     alt={item.title}
+                                    loading="lazy"
                                 />
                                 <ImageListItemBar
                                     title={item.title}
