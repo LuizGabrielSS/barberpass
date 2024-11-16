@@ -123,7 +123,8 @@ const translation = {
         header:{
             "price":"Plans",
             "login":"Login",
-            "contact":"Contact"
+            "contact":"Contact",
+            "map":"Map"
         },
         "components":{
             "noOptionsText":"No options available"

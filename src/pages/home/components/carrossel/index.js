@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 
 import CategoryIcon from '@mui/icons-material/Category';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -41,7 +42,7 @@ function DetailItem({name,info,Icon}){
 
 }
 
-function ItenCarrossel({item,index}){
+function ItenCarrossel({item,index,navegacao}){
 
     const[open,setopen] = useState(false)
 
@@ -54,6 +55,7 @@ function ItenCarrossel({item,index}){
             padding:1,
             alignItems:"center",
             justifyContent:"center",
+            cursor: 'pointer',
         }}
         onMouseEnter={() => setopen(true)}
         onMouseLeave={() => setopen(false)}
@@ -74,8 +76,10 @@ function ItenCarrossel({item,index}){
                         justifyContent:"center",
                         borderRadius:"5%",
                         padding:1,
-                        margin:1
+                        margin:1,
+                        cursor: 'pointer',
                     }}
+                    onClick={() => navegacao("/provider/"+item.id)}
                     >
                         <DetailItem
                         Icon={CategoryIcon}
@@ -123,6 +127,8 @@ function ItenCarrossel({item,index}){
 
 export default function CarrosselComponent({data}){
 
+    const navegacao = useNavigate()
+
     return(
         <Box
         m={3}
@@ -139,6 +145,7 @@ export default function CarrosselComponent({data}){
                     key={item.id}
                     item={item}
                     index={index}
+                    navegacao={navegacao}
                     />
                 )
             })}

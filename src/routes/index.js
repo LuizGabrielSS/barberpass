@@ -13,6 +13,8 @@ import PlansScreen from '../pages/plans'
 import ContactScreen from '../pages/contact'
 import ConfigScreen from '../pages/config'
 import PerfilScreen from '../pages/perfil'
+import MapScreen from '../pages/map'
+import ProviderScreen from '../pages/provider'
 
 function ProtectRoute({children}){
 
@@ -81,6 +83,22 @@ export default function RoutesFunction(){
                         <ProtectRoute>
                             <PerfilScreen/>
                         </ProtectRoute>
+                    }
+                />
+                <Route
+                    path="/map"
+                    element={
+                        // <ProtectRoute>
+                            <MapScreen/>
+                        // </ProtectRoute>
+                    }
+                />
+                <Route
+                    path="/provider/:id"
+                    element={
+                        // <ProtectRoute>
+                            <ProviderScreen/>
+                        // </ProtectRoute>
                     }
                 />
             </Routes>
