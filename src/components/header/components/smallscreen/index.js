@@ -27,15 +27,6 @@ export default function SmallScreen({OpenList,SetOpenList,drawerWidth,localizaca
                     }
                     />
                     <SmallItems
-                    Icone={ContactPageIcon}
-                    action={()=> navegacao('/contact')}
-                    text={
-                        <Translator
-                        path="header.contact"
-                        />
-                    }
-                    />
-                    <SmallItems
                     Icone={AddLocationAltIcon}
                     action={()=> navegacao('/map')}
                     text={
@@ -44,9 +35,17 @@ export default function SmallScreen({OpenList,SetOpenList,drawerWidth,localizaca
                         />
                     }
                     />
+                    <SmallItems
+                    Icone={ContactPageIcon}
+                    action={()=> navegacao('/contact')}
+                    text={
+                        <Translator
+                        path="header.contact"
+                        />
+                    }
+                    />
                 </List>
             </Box>
-            
         </Drawer>
     )
 }

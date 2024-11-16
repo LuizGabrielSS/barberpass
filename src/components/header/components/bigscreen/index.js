@@ -23,19 +23,19 @@ export default function BigScreen({localizacao,navegacao}){
             variant="outlined"
             />
             <ButtonComponent
-            action={()=> navegacao('/contact')}
+            action={()=> navegacao('/map')}
             text={
                 <Translator
-                path="header.contact"
+                path="header.map"
                 />
             }
             variant="outlined"
             />
             <ButtonComponent
-            action={()=> navegacao('/map')}
+            action={()=> navegacao('/contact')}
             text={
                 <Translator
-                path="header.map"
+                path="header.contact"
                 />
             }
             variant="outlined"

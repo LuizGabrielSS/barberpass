@@ -86,6 +86,8 @@ export default function Map(){
                                 position={[item.latitude,item.longitude]}
                                 text={item.nome}
                                 iconUrl={item.image}
+                                simple={false}
+                                details={item}
                             />)
                       })
                     }              
