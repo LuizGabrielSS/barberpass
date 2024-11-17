@@ -8,10 +8,10 @@ export default function EmptyComponent(){
         <Box
         m={2}
         backgrounColor="background.ter"
+        p={5}
         sx={{
-            borderTop: `2px solid`,
-            borderBottom: `2px solid`,
-            borderRadius: '8px'
+            border: `2px solid`,
+            // borderRadius: '8px'
         }}
         >
             <Typography
@@ -20,7 +20,7 @@ export default function EmptyComponent(){
                 Ops! Não encontramos nada com base no que foi solicitado
             </Typography>
             <Typography
-            variant={window.innerWidth>420 ? 'h5' : 'h6'}
+            variant={window.innerWidth>420 ? 'h6' : 'body1'}
             >
                 Por favor, continue pesquisando, talvez tenhamos o que voce deseja com outro nome
             </Typography>

@@ -38,7 +38,7 @@ const home = {
     'carrossel':{
         'category':'Categoria',
         'description':'Descrição',
-        'time':'Tempo',
+        'time':'Funcionamento',
         'map':'Localizaçao'
     },
     'serviceoffer':{

@@ -10,7 +10,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import {Translator} from '../../../../components/translate'
 import { Grid } from '@mui/material';
 
-function DetailItem({name,info,Icon}){
+function DetailItem({name,info,Icon,index}){
 
     return (
         <Box
@@ -19,44 +19,58 @@ function DetailItem({name,info,Icon}){
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                flexWrap: 'wrap'
+                flexWrap: 'nowrap',
             }}
         >
-            <Grid container spacing={2} alignItems="center">
-                <Grid item xs={1}>
-                    <Icon />
-                </Grid>
-                <Grid item xs={3}>
-                    <Box
-                    m={1}
-                    >
-                        <Typography 
-                        variant={
-                            window.innerWidth > 420 
-                            ? "h6"
-                            : "body2"
-                        } 
-                        bold>
-                            {name}:
-                        </Typography>
-                    </Box>
-                </Grid>
-                <Grid item xs={8}>
-                    <Box
-                    m={1}
-                    >
-                        <Typography
-                        variant={
-                            window.innerWidth > 420 
-                            ? "h6"
-                            : "body2"
-                        } 
-                        >
-                            {info}
-                        </Typography>
-                    </Box>
-                </Grid>
-            </Grid>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flex: 1,
+                }}
+            >
+                <Icon sx={{ color: index % 2 === 0 ? "text.ter" : "text.main" }}/>
+            </Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flex: 3,
+                }}
+            >
+                <Typography 
+                    color={index % 2 === 0 ? "text.ter" : "text.main"}
+                    variant={
+                        window.innerWidth > 420 
+                        ? "h6"
+                        : "subtitle1"
+                    } 
+                    bold
+                >
+                    {name}:
+                </Typography>
+            </Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flex: 4,
+                }}
+            >
+                <Typography
+                    color={index % 2 === 0 ? "text.ter" : "text.main"}
+                    variant={
+                        window.innerWidth > 420 
+                        ? "h6"
+                        : "subtitle1"
+                    } 
+                >
+                    {info}
+                </Typography>
+            </Box>
         </Box>
     );
 
@@ -71,7 +85,7 @@ function ItenCarrossel({item,index,navegacao}){
         m={1}
         sx={{
             backgroundColor:(index % 2 === 0 ? "primary.main" : "primary.secondary"),
-            borderRadius:"5%",
+            // borderRadius:"10%",
             padding:1,
             alignItems:"center",
             justifyContent:"center",
@@ -96,10 +110,11 @@ function ItenCarrossel({item,index,navegacao}){
                 open
                 ?  <Box
                     sx={{
-                        backgroundColor:"primary.ter",
+                        backgroundColor:(index % 2 === 0 ? "primary.secondary" : "primary.main"),
+                        // backgroundColor:"primary.ter",
                         alignItems:"center",
                         justifyContent:"center",
-                        borderRadius:"5%",
+                        // borderRadius:"5%",
                         padding:1,
                         margin:1,
                         cursor: 'pointer',
@@ -107,6 +122,7 @@ function ItenCarrossel({item,index,navegacao}){
                     onClick={() => navegacao("/provider/"+item.id)}
                     >
                         <DetailItem
+                        index={index}
                         Icon={CategoryIcon}
                         name={
                             <Translator
@@ -116,6 +132,7 @@ function ItenCarrossel({item,index,navegacao}){
                         info={item.categoria}
                         />
                         <DetailItem
+                        index={index}
                         Icon={DescriptionIcon}
                         name={
                             <Translator
@@ -125,6 +142,7 @@ function ItenCarrossel({item,index,navegacao}){
                         info={item.descricao}
                         />
                         <DetailItem
+                        index={index}
                         Icon={AccessAlarmIcon}
                         name={
                             <Translator
@@ -134,6 +152,7 @@ function ItenCarrossel({item,index,navegacao}){
                         info={item.funcionamento}
                         />
                         <DetailItem
+                        index={index}
                         Icon={PlaceIcon}
                         name={
                             <Translator
