@@ -43,7 +43,11 @@ function ItemComponent({title,detail}){
                     py={2}
                     >
                         <Typography
-                        variant="h6"
+                        variant={
+                            window.innerWidth > 420 
+                            ? "h6"
+                            : "body2"
+                        } 
                         >
                             {detail}
                         </Typography>

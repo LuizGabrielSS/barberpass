@@ -27,26 +27,34 @@ function DetailItem({name,info,Icon}){
                     <Icon />
                 </Grid>
                 <Grid item xs={3}>
-                    <Typography 
-                    variant={
-                        window.innerWidth > 420 
-                        ? "h6"
-                        : "body2"
-                    } 
-                    bold>
-                        {name}:
-                    </Typography>
+                    <Box
+                    m={1}
+                    >
+                        <Typography 
+                        variant={
+                            window.innerWidth > 420 
+                            ? "h6"
+                            : "body2"
+                        } 
+                        bold>
+                            {name}:
+                        </Typography>
+                    </Box>
                 </Grid>
                 <Grid item xs={8}>
-                    <Typography
-                    variant={
-                        window.innerWidth > 420 
-                        ? "h6"
-                        : "body2"
-                    } 
+                    <Box
+                    m={1}
                     >
-                        {info}
-                    </Typography>
+                        <Typography
+                        variant={
+                            window.innerWidth > 420 
+                            ? "h6"
+                            : "body2"
+                        } 
+                        >
+                            {info}
+                        </Typography>
+                    </Box>
                 </Grid>
             </Grid>
         </Box>
@@ -78,7 +86,7 @@ function ItenCarrossel({item,index,navegacao}){
             align='center'
             variant={
                 window.innerWidth > 420 
-                ? "h4"
+                ? "h5"
                 : "h6"
             } 
             >

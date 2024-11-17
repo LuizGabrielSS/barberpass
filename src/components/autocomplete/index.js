@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import {Translator} from '../translate'
 
-export default function AutocompleteComponent({informacao,setinformacao,options,label,placeholder,label_element,onDark=false}){
+export default function AutocompleteComponent({informacao,setinformacao,options,label,placeholder,label_element,onDark=false,readOnly=false}){
 
     const theme = useSelector((state) => state.mode.darkmode);
 
@@ -25,6 +25,7 @@ export default function AutocompleteComponent({informacao,setinformacao,options,
             noOptionsText={<Translator path="components.noOptionsText"/>}
             options={options}
             disableClearable
+            readOnly={readOnly}
             renderInput={(params) => 
                 <TextField 
                 {...params}
