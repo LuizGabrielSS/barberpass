@@ -22,7 +22,7 @@ export function keep(token,refresh,user){
         "picture": store.getState().user.picture
     }
 
-    const all_secrets = CryptoJS.AES.encrypt(String(secrets),process.env.REACT_APP_SECRET).toString()
+    const all_secrets = CryptoJS.AES.encrypt(JSON.stringify(secrets), process.env.REACT_APP_SECRET).toString()
 
     localStorage.setItem('crypto',all_secrets)
 

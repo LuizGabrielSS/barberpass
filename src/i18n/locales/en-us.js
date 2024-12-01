@@ -15,6 +15,10 @@ const login = {
         "label":"Mode",
         "placeholder":"Fill in with your preferred mode"
     },
+    "categoria":{
+        "label":"Category",
+        "placeholder":"Type your category"
+    },
     "password":{
         "label":"Password",
         "placeholder":"Type your password"

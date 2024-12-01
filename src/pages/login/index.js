@@ -14,7 +14,8 @@ const initialState = {
     'repeat_password':null,
     'number':null,
     'modalidade':null,
-    'name':null
+    'name':null,
+    'categoria':null
 }
 
 const reducer = (state,action) => {

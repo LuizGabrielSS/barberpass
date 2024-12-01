@@ -68,7 +68,11 @@ function DetailItem({name,info,Icon,index}){
                         : "subtitle1"
                     } 
                 >
-                    {info}
+                    {
+                        info === null
+                        ? "Desconhecido"
+                        : info
+                    }
                 </Typography>
             </Box>
         </Box>

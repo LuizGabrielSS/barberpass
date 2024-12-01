@@ -15,6 +15,10 @@ const login = {
         "label":"Modalidade",
         "placeholder":"Preencha com qual modalidade prefere usar"
     },
+    "categoria":{
+        "label":"Categoria",
+        "placeholder":"Selecione a sua categoria"
+    },
     "password":{
         "label":"Senha",
         "placeholder":"Digite a sua senha"

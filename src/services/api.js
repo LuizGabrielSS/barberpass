@@ -12,7 +12,7 @@ const api = axios.create({
 api.interceptors.request.use(
     config => {
         recovery()
-        config.headers['Authorization'] = `Bearer ${store.getState().auth.refresh}`
+        config.headers['Authorization'] = `Bearer ${store.getState().auth.token}`
         return config
     },
     error => {

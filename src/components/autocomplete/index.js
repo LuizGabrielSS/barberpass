@@ -21,18 +21,19 @@ export default function AutocompleteComponent({informacao,setinformacao,options,
         >
             <Autocomplete
             disablePortal
-            defaultValue={informacao}
+            value={informacao}
             noOptionsText={<Translator path="components.noOptionsText"/>}
             options={options}
             disableClearable
             readOnly={readOnly}
+            onChange={(event,value) => input_info(value)}
             renderInput={(params) => 
                 <TextField 
                 {...params}
                 placeholder={placeholder} 
                 label={label} 
                 variant="filled"
-                onChange={(event,value) => input_info(value)}
+                // onChangeCapture={(event,value) => input_info(value)}
                 InputProps={{
                     ...params.InputProps,
                     style: { 

@@ -147,18 +147,6 @@ export default function PerfilScreen(){
                 m={3}
                 >
                     <InputComponent
-                    label={t('perfil.name.label')}
-                    placeholder={t('perfil.name.placeholder')}
-                    informacao={state.name}
-                    label_element='name'
-                    setinformacao={dispatch}
-                    onDark={true}
-                />
-                </Box>
-                <Box
-                m={3}
-                >
-                    <InputComponent
                     label={t('perfil.email.label')}
                     placeholder={t('perfil.email.placeholder')}
                     informacao={state.email}
