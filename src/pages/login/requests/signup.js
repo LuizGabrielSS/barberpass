@@ -4,7 +4,7 @@ import store from '../../../redux'
 import { setUser } from '../../../redux/reducers/user'
 import { setToken,setRefreshToken } from '../../../redux/reducers/auth'
 
-export default function signupRequest(setLoading,setStatus,user,password,number,modalidade,name,email,categoria,dispatchDialog,navegacao){
+export default function signupRequest(setLoading,setStatus,password,modalidade,name,email,dispatchDialog,navegacao){
 
     setLoading(true)
 
@@ -12,34 +12,49 @@ export default function signupRequest(setLoading,setStatus,user,password,number,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
     }
 
     const body = {
         "email": email,
         "password": password,
-        "user":name,
-        "number":number,
-        "modalidade":modalidade,
-        "categoria":categoria
+        "username":name,
+        "modalidade":modalidade
     }
 
-    api.post('/login/sign-up',body,{headers: headers})
+    api.post('/access/signup',body,{headers: headers})
     .then(response => {
         if(String(response).toLowerCase() === "network"){
             setStatus("network")
-        }else if(response.status === 204){
-
-            // o usuario não foi encontrado
+        }else if(response.status === 400){
+            // Dados preenchidos de maneira incorreta
             console.log(response)
+
+            dispatchDialog({
+                label:'title',
+                value:'Erro tentando criar usuario'
+            })
+        
+            dispatchDialog({
+                label:'text',
+                value:response.data.message
+            })
+
+            dispatchDialog({
+                label:'open',
+                value:true
+            })
+
+            dispatchDialog({
+                label:'action',
+                value:false
+            })
+
         }else{
             // o usuario foi encontrado
             store.dispatch(setToken(response.data.token))
             store.dispatch(setRefreshToken(response.data.refresh))
-            // store.dispatch(setUser(response.data.user))
-            store.dispatch(setUser(email))
-            keep(response.data.token,response.data.refresh,response.data.user)
+            store.dispatch(setUser(response.data.username))
+            keep(response.data.token,response.data.refresh,response.data.username)
 
             dispatchDialog({
                 label:'title',
@@ -53,7 +68,12 @@ export default function signupRequest(setLoading,setStatus,user,password,number,
     
             dispatchDialog({
                 label:'action',
-                value:navegacao('/')
+                value:true
+            })
+
+            dispatchDialog({
+                label:'open',
+                value:true
             })
         }
     })

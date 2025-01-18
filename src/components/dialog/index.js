@@ -3,7 +3,7 @@ import {Box, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Typogra
 
 import ButtonComponent from '../button'
 
-export default function DialogComponent({open,title,text,action}){
+export default function DialogComponent({open,title,text,action,navigate}){
 
     const[OpenDialog,SetOpenDialog] = useState(false)
 
@@ -12,6 +12,15 @@ export default function DialogComponent({open,title,text,action}){
             SetOpenDialog(true)
         }
     },[open])
+
+    function defineAction(){
+        if(action){
+            SetOpenDialog(false);
+            navigate('/')
+        }else{
+            SetOpenDialog(false);
+        }
+    }
 
     return(
         <Box>
@@ -48,11 +57,7 @@ export default function DialogComponent({open,title,text,action}){
                 </DialogContent>
                 <DialogActions>
                     <ButtonComponent
-                    action={() => {
-                        SetOpenDialog(false);
-                        action()
-                        }
-                    }
+                    action={() => defineAction()}
                     color='primary'
                     variant='contained'
                     text='OK'

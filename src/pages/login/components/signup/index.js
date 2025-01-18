@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Box} from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom';
 
 import InputComponent from '../../../../components/input/complex'
 import AutoCompleteComponent from '../../../../components/autocomplete'
@@ -13,39 +12,8 @@ import validate_field from '../validation'
 import signupRequest from '../../requests/signup'
 
 const options_modalidades = [
-    {'id':'1','label':'cliente'},
-    {'id':'2','label':'prestador de serviço'},
-]
-
-const options_categoria = [
-    {
-        "id":1,
-        "label":"barbearia",
-    },
-    {
-        "id":2,
-        "label":"salão de beleza",
-    },
-    {
-        "id":3,
-        "label":"spa",
-    },
-    {
-        "id":4,
-        "label":"estetica",
-    },
-    {
-        "id":5,
-        "label":"massagem",
-    },
-    {
-        "id":6,
-        "label":"dermatologia",
-    },
-    {
-        "id":7,
-        "label":"dermatologia",
-    },
+    {"id":1,"label":"cliente"},
+    {"id":2,"label":"prestador de serviço"},
 ]
 
 export default function SignUpComponent({setscreen,state,dispatch,altura,setLoading,setStatus,dispatchDialog}){
@@ -57,8 +25,6 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
     },[state])
 
     const { t } = useTranslation()
-
-    const navegacao = useNavigate()
 
     return(
         <Box
@@ -84,22 +50,6 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
                 informacao={state.name}
                 setinformacao={dispatch}
                 label_element='name'
-                />
-            </Box>
-            <Box
-                m={3}
-                >
-                <InputComponent
-                placeholder={(t("login.number.placeholder"))}
-                label={
-                    <Translator
-                        path="login.number.label"
-                        />
-                    }
-                informacao={state.number}
-                setinformacao={dispatch}
-                label_element='number'
-                type="number"
                 />
             </Box>
             <Box
@@ -133,27 +83,6 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
                 label_element='modalidade'
                 />
             </Box>
-            {
-                state.modalidade !== null && state.modalidade.id === '2'
-                ? 
-                <Box
-                m={3}
-                >
-                <AutoCompleteComponent
-                informacao={state.categoria}
-                label={
-                    <Translator
-                        path="login.categoria.label"
-                        />
-                    }
-                options={options_categoria}
-                placeholder={(t("login.categoria.placeholder"))}
-                setinformacao={dispatch}
-                label_element='categoria'
-                />
-            </Box>
-                : null
-            }
             <Box
             m={3}
             >
@@ -192,16 +121,12 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
                 signupRequest(
                     setLoading,
                     setStatus,
-                    state.user,
                     state.password,
-                    state.number,
                     state.modalidade,
-                    state.categoria,
                     state.name,
                     state.email,
                     dispatchDialog,
-                    dispatchDialog,
-                    navegacao
+                    dispatchDialog
                 )
             }
             screen='signup'

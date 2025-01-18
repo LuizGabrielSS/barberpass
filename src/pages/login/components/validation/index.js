@@ -39,24 +39,12 @@ export default function validate_fields(state,screen,setbuttonstatus){
         }
     }else if(screen === 'signup'){
         if(validate_field(state.name)){
-            if(validate_field(state.number)){
-                if(validate_field(state.email)){
-                    if(validate_field(state.modalidade,true)){
-                        if(validate_field(state.password)){
-                            if(validate_field(state.repeat_password)){
-                                if(state.password === state.repeat_password){
-                                    if(state.modalidade.id === "2"){
-                                        if(validate_field(state.categoria,true)){
-                                            setbuttonstatus(true)
-                                        }else{
-                                            setbuttonstatus(false)
-                                        }
-                                    }else{
-                                        setbuttonstatus(true)
-                                    }
-                                }else{
-                                    setbuttonstatus(false)
-                                }
+            if(validate_field(state.email)){
+                if(validate_field(state.modalidade,true)){
+                    if(validate_field(state.password)){
+                        if(validate_field(state.repeat_password)){
+                            if(state.password === state.repeat_password){
+                                setbuttonstatus(true)
                             }else{
                                 setbuttonstatus(false)
                             }
@@ -64,11 +52,11 @@ export default function validate_fields(state,screen,setbuttonstatus){
                             setbuttonstatus(false)
                         }
                     }else{
-                    setbuttonstatus(false)
-                }
+                        setbuttonstatus(false)
+                    }
                 }else{
-                    setbuttonstatus(false)
-                }
+                setbuttonstatus(false)
+            }
             }else{
                 setbuttonstatus(false)
             }

@@ -1,5 +1,6 @@
 import React, {useReducer, useState,useEffect} from 'react'
 import {Box} from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 
 import ContainerComponent from '../../components/container'
 import DialogComponent from '../../components/dialog'
@@ -12,10 +13,8 @@ const initialState = {
     'email':null,
     'password':null,
     'repeat_password':null,
-    'number':null,
     'modalidade':null,
-    'name':null,
-    'categoria':null
+    'name':null
 }
 
 const reducer = (state,action) => {
@@ -29,7 +28,7 @@ const initialStateDialog = {
     'open':false,
     'title':'',
     'text':'',
-    'action':null
+    'action':false
 }
 
 export default function LoginScreen(){
@@ -64,6 +63,8 @@ export default function LoginScreen(){
         };
       }, []);
 
+    const navigate = useNavigate()
+
     return(
         <ContainerComponent
         loading={Loading}
@@ -95,6 +96,8 @@ export default function LoginScreen(){
                     open={stateDialog.open}
                     title={stateDialog.title}
                     text={stateDialog.text}
+                    action={stateDialog.action}
+                    navigate={navigate}
                     />
                     {
                         scren === 'login'
