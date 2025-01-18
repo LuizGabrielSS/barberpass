@@ -18,20 +18,38 @@ export default function loginRequest(setLoading,setStatus,email,password,dispatc
         "password": password
     }
 
-    api.post('/login',body,{headers: headers})
+    api.post('/access/login',body,{headers: headers})
     .then(response => {
         if(String(response).toLowerCase() === "network"){
             setStatus("network")
-        }else if(response.status === 204){
+        }else if(response.status === 400){
+            dispatchDialog({
+                label:'title',
+                value:'Usuario não encontrado'
+            })
+        
+            dispatchDialog({
+                label:'text',
+                value:'Por favor, verifique os dados inseridos e tente novamente'
+            })
+    
+            dispatchDialog({
+                label:'action',
+                value:false
+            })
 
+            dispatchDialog({
+                label:'open',
+                value:true
+            })    
             // o usuario não foi encontrado
-            console.log(response)
+            // console.log(response)
         }else{
             // o usuario foi encontrado
             store.dispatch(setToken(response.data.token))
             store.dispatch(setRefreshToken(response.data.refresh))
-            store.dispatch(setUser(response.data.user))
-            keep(response.data.token,response.data.refresh,response.data.user)
+            store.dispatch(setUser(response.data.username))
+            keep(response.data.token,response.data.refresh,response.data.username)
 
             dispatchDialog({
                 label:'title',
@@ -45,7 +63,12 @@ export default function loginRequest(setLoading,setStatus,email,password,dispatc
     
             dispatchDialog({
                 label:'action',
-                value:navegacao('/')
+                value:true
+            })
+
+            dispatchDialog({
+                label:'open',
+                value:true
             })
         }
     })
