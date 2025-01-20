@@ -3,7 +3,7 @@ import { Box, TextField,FormControl,FormHelperText, IconButton } from '@mui/mate
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { useSelector } from 'react-redux';
 
-export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false,onDark=false}){
+export default function InputComponent({password=false,placeholder,label,informacao,setinformacao,label_element='',type="text",status_helper=false,multiline=false,onDark=false,readOnly=false}){
 
     const[showPassword,setshowPassword] = useState(false)
 
@@ -55,6 +55,7 @@ export default function InputComponent({password=false,placeholder,label,informa
                     placeholder={placeholder}
                     variant="filled"
                     label={label}
+                    
                     type={showPassword 
                         ? type
                         : 'password'
@@ -79,6 +80,11 @@ export default function InputComponent({password=false,placeholder,label,informa
                             </IconButton>
                         ) : null
                     }}
+                    slotProps={{
+                        input: {
+                          readOnly: readOnly,
+                        },
+                      }}
                 />
             </FormControl>
             {

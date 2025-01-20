@@ -1,26 +1,40 @@
 import api from '../../../services/api';
-import {keep} from '../../../services/keep_token'
-import store from '../../../redux'
-import { setUser,setEmail,setModalidade,setName,setNumber,setPicture } from '../../../redux/reducers/user'
 
 export default function saveChanges(setoriginalState,state,setloading,setStatus){
 
     setloading(true)
 
-    store.dispatch(setUser(state.user))
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
 
-    store.dispatch(setEmail(state.email))
+    const body = {
+        "id": state.id,
+        "email": state.email,
+        "username": state.user,
+        "id_modalidade": state.id_modalide,
+        "data": {
+            "id": state.id_data,
+            "telefone": state.number,
+            "foto": state.picture,
+            "corporativo": state.corporativo,
+            "id_empresa": state.id_empresa,
+            "id_plano": state.id_plano,
+        }
+    }
 
-    store.dispatch(setModalidade(state.modalidade))
+    api.patch('/user/',body,{headers: headers})
+    .then(response => {
+        if(String(response).toLowerCase() === "network"){
+            setStatus("network")
+        }else if(response.status === 404){
+            window.location = `${process.env.REACT_APP_URL}/login`
+        }else{
+            setoriginalState(state)
 
-    store.dispatch(setName(state.name))
-
-    store.dispatch(setNumber(state.number))
-
-    store.dispatch(setPicture(state.picture))
-
-    setoriginalState(state)
-
-    setloading(false)
+            setloading(false)
+        }
+    })
 
 }
