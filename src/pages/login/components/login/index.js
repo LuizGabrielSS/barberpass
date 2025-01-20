@@ -23,55 +23,56 @@ export default function LoginComponent({setscreen,state,dispatch,setLoading,setS
 
     const navegacao = useNavigate()
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            loginRequest(
+                setLoading,
+                setStatus,
+                state.email,
+                state.password,
+                dispatchDialog,
+                navegacao
+            );
+        }
+    };
+
     return(
-        <>
-            <Box
-            m={3}
-            >
+        <div onKeyPress={handleKeyPress}>
+            <Box m={3}>
                 <InputComponent
-                placeholder={(t("login.email.placeholder"))}
-                label={
-                    <Translator
-                        path="login.email.label"
-                        />
-                    }
-                informacao={state.email}
-                setinformacao={dispatch}
-                label_element='email'
+                    placeholder={t("login.email.placeholder")}
+                    label={<Translator path="login.email.label" />}
+                    informacao={state.email}
+                    setinformacao={dispatch}
+                    label_element='email'
                 />
             </Box>
-            <Box
-            m={3}
-            >
+            <Box m={3}>
                 <InputComponent
-                placeholder={(t("login.password.placeholder"))}
-                label={
-                    <Translator
-                        path="login.password.label"
-                        />
-                    }
-                informacao={state.password}
-                setinformacao={dispatch}
-                password={true}
-                label_element='password'
+                    placeholder={t("login.password.placeholder")}
+                    label={<Translator path="login.password.label" />}
+                    informacao={state.password}
+                    setinformacao={dispatch}
+                    password={true}
+                    label_element='password'
                 />
             </Box>
             <NavigationButtons
-            action={() => 
-                loginRequest(
-                    setLoading,
-                    setStatus,
-                    state.email,
-                    state.password,
-                    dispatchDialog,
-                    navegacao
-                )
-            }
-            screen='login'
-            setscreen={setscreen}
-            buttonstatus={buttonstatus}
+                action={() => 
+                    loginRequest(
+                        setLoading,
+                        setStatus,
+                        state.email,
+                        state.password,
+                        dispatchDialog,
+                        navegacao
+                    )
+                }
+                screen='login'
+                setscreen={setscreen}
+                buttonstatus={buttonstatus}
             />
-        </>
+        </div>
     )
 
 }

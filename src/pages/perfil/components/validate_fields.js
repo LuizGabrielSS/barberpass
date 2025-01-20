@@ -23,16 +23,14 @@ export default function validate_changes(state,setbuttonstatus,setbuttonresetsta
 
     const validate_number = validate_field(state.number,originalState.number)
 
-    const validate_name = validate_field(state.name,originalState.name)
-
     const validate_modalidade = validate_field(state.modalidade,originalState.modalidade)
 
     const validate_picture = validate_field(state.picture,originalState.picture)
     
-    if(validate_user === null && validate_email === null && validate_number === null && validate_name === null && validate_modalidade === null && validate_picture === null){
+    if(validate_user === null && validate_email === null && validate_number === null && validate_modalidade === null && validate_picture === null){
         setbuttonstatus(false)
         setbuttonresetstatus(false)
-    }else if(validate_user === false || validate_email  === false || validate_number  === false || validate_name  === false || validate_modalidade  === false || validate_picture === false){
+    }else if(validate_user === false || validate_email  === false || validate_number  === false || validate_modalidade  === false || validate_picture === false){
         setbuttonstatus(false)
         setbuttonresetstatus(true)
     }else{

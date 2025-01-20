@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ContainerComponent from '../../components/container'
 import DialogComponent from '../../components/dialog'
+import LoadingDialogComponent from '../../components/loading'
 
 import LoginComponent from './components/login'
 import PasswordComponent from './components/password'
@@ -67,9 +68,11 @@ export default function LoginScreen(){
 
     return(
         <ContainerComponent
-        loading={Loading}
+        loading={false}
         status={Status}
         >
+            <LoadingDialogComponent
+            open={Loading}/>
             <Box
             sx={{
                 height: altura*87/100,

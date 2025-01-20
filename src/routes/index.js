@@ -1,9 +1,9 @@
 //Externas
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom'
 
 //redux
-import store from '../redux'
+import { useSelector } from 'react-redux';
 
 //screens
 import NotFoundScreen from '../pages/notfound'
@@ -16,19 +16,21 @@ import PerfilScreen from '../pages/perfil'
 import MapScreen from '../pages/map'
 import ProviderScreen from '../pages/provider'
 
-function ProtectRoute({children}){
+function ProtectRoute({children}) {
+    const token = useSelector((state) => state.auth.token);
+    const [currentToken, setCurrentToken] = useState(token);
 
-    const token = store.getState().auth.token
+    useEffect(() => {
+        setCurrentToken(token);
+    }, [token]);
 
-    if(token === null || token === undefined){
+    if(currentToken === null || currentToken === undefined){
         return(
             <Navigate to="/login"/>
-        )
+        );
+    } else {
+        return children;
     }
-    else{
-        return children
-    }
-    
 }
 
 export default function RoutesFunction(){

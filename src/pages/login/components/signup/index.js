@@ -26,7 +26,23 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
 
     const { t } = useTranslation()
 
+    const handleKeyPress = (event) => {
+            if (event.key === 'Enter') {
+                signupRequest(
+                    setLoading,
+                    setStatus,
+                    state.password,
+                    state.modalidade,
+                    state.name,
+                    state.email,
+                    dispatchDialog,
+                    dispatchDialog
+                )
+            }
+        };
+
     return(
+        <div onKeyPress={handleKeyPress}>
         <Box
         sx={{
             height: altura*70/100,
@@ -134,5 +150,6 @@ export default function SignUpComponent({setscreen,state,dispatch,altura,setLoad
             buttonstatus={buttonstatus}
             /> 
         </Box>
+        </div>
     )
 }

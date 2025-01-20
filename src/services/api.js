@@ -11,9 +11,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
     config => {
-        console.log(config)
-        // recovery()
-        // config.headers['Authorization'] = `Bearer ${store.getState().auth.token}`
+        recovery()
+        config.headers['Authorization'] = `Bearer ${store.getState().auth.token}`
         return config
     },
     error => {

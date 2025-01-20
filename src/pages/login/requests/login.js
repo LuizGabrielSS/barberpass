@@ -71,8 +71,6 @@ export default function loginRequest(setLoading,setStatus,email,password,dispatc
                 value:true
             })
         }
+        setLoading(false)
     })
-
-    setLoading(false)
-
 }

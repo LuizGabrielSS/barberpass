@@ -18,7 +18,6 @@ const initialState = {
     'email':null,
     'user':null,
     'number':null,
-    'name':null,
     'modalidade':null,
     'picture':null
 }
