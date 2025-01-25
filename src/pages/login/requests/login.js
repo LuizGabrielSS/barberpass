@@ -23,6 +23,7 @@ export default function loginRequest(setLoading,setStatus,email,password,dispatc
         if(String(response).toLowerCase() === "network"){
             setStatus("network")
         }else if(response.status === 400){
+            console.log("Aqui")
             dispatchDialog({
                 label:'title',
                 value:'Usuario não encontrado'

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Box, TextField,FormControl,FormHelperText, IconButton } from '@mui/material'
+import { Box, TextField,FormControl,FormHelperText, IconButton,InputAdornment  } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { useSelector } from 'react-redux';
 
@@ -55,7 +55,6 @@ export default function InputComponent({password=false,placeholder,label,informa
                     placeholder={placeholder}
                     variant="filled"
                     label={label}
-                    
                     type={showPassword 
                         ? type
                         : 'password'
@@ -63,28 +62,28 @@ export default function InputComponent({password=false,placeholder,label,informa
                     multiline={multiline}
                     onChange={(value) => input_info(value.target.value)}
                     defaultValue={informacao}
+                    inputProps={{
+                        readOnly: readOnly,
+                    }}
                     InputProps={{
                         style: { 
-                            color: theme.mode === "dark" && onDark ? 'white' : 'black',
+                            color: onDark ? 'white' : 'black',
                         },
                         endAdornment: password ? (
-                            <IconButton
+                            <InputAdornment position="end">
+                                <IconButton
                                 aria-label="toggle password visibility"
                                 onClick={() => setshowPassword(!showPassword)}
-                                edge="end"
                                 sx={{
                                     color: 'text.secondary'
                                 }}
                             >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
+                            </InputAdornment>
                         ) : null
                     }}
-                    slotProps={{
-                        input: {
-                          readOnly: readOnly,
-                        },
-                      }}
+                    
                 />
             </FormControl>
             {

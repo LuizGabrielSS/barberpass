@@ -75,7 +75,7 @@ export default function LoginScreen(){
             open={Loading}/>
             <Box
             sx={{
-                height: altura*87/100,
+                minHeight: `calc(${altura}px - 9vh)`,
                 backgroundImage:`url(${process.env.PUBLIC_URL}${fundo})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',

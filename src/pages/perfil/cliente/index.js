@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import { Box,Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom';
 
 import InputComponent from '../../../components/input/complex'
 import {Translator} from '../../../components/translate'
@@ -9,9 +10,13 @@ import validate_changes from './components/validate_fields'
 import returnFields from './components/return_fields'
 import PictureComponent from '../../../components/pictures'
 
+import PasswordIcon from '@mui/icons-material/Password';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+
 import saveChanges from '../requests/save_changes'
 
-export default function ProfileClient({originalState,setoriginalState,state,dispatch,setloading,setstatus}){
+export default function ProfileClient({originalState,setoriginalState,state,dispatch,setloading,setstatus,schedules,SetSchedules}){
 
     const { t } = useTranslation()
 
@@ -19,36 +24,22 @@ export default function ProfileClient({originalState,setoriginalState,state,disp
 
     const[buttonresetstatus,setbuttonresetstatus] = useState(false)
 
-    const [altura, setAltura] = useState(window.innerHeight);
-
-    useEffect(() => {
-        const handleResize = () => {
-          setAltura(window.innerHeight);
-        };
-    
-        window.addEventListener('resize', handleResize);
-    
-        // Limpeza do listener quando o componente for desmontado
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
-
     useEffect(() => {
         validate_changes(state,setbuttonstatus,setbuttonresetstatus,originalState)
     },[state,originalState])
 
+    const navegacao = useNavigate()
+
     return(
         <Box
-                sx={{
-                height: altura*87/100,
-                display:"flex",
-                justifyContent:"center",
-                alignItems:"center",
+            sx={{
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center",
             }}
             >
                 <Box
-                p={2}
+                p={5}
                 m={2}
                 width={
                     window.innerWidth> 420 
@@ -56,11 +47,11 @@ export default function ProfileClient({originalState,setoriginalState,state,disp
                     :"100%"
                 }
                 sx={{
-                    // borderRadius:"10%",
-                    // borderWidth:'2px',
-                    // borderStyle:"solid",
-                    // borderColor:'primary.main',
-                    // backgroundColor:"#fff"
+                    borderRadius:"10%",
+                    borderWidth:'2px',
+                    borderStyle:"solid",
+                    borderColor:'primary.main',
+                    backgroundColor:"#663300"
                 }}
                 >
                 <Box
@@ -75,6 +66,7 @@ export default function ProfileClient({originalState,setoriginalState,state,disp
                         ? "h2"
                         : "h4"
                     }
+                    color="#fff"
                     >
                     <Translator
                     path="perfil.title"
@@ -139,15 +131,45 @@ export default function ProfileClient({originalState,setoriginalState,state,disp
                     <ButtonComponent
                         action={() => saveChanges(setoriginalState,state,setloading,setstatus)}
                         text={t('perfil.save')}
-                        color='primary'
+                        color='button'
                         variant='contained'
                         status={!buttonstatus}
                     />
                     <ButtonComponent
                         action={() => returnFields(dispatch,originalState,setloading)}
                         text={t('perfil.return')}
-                        color='primary'
+                        color='button'
                         status={!buttonresetstatus}
+                    />
+                </Box>
+                <Box
+                m={3}
+                sx={{
+                    display:"flex",
+                    alignItems:"center",
+                    justifyContent:"center",
+                    flexWrap:'wrap'
+                }}
+                >
+                    <ButtonComponent
+                        text={t('perfil.configure')}
+                        color='button'
+                        variant='contained'
+                        Icon={SettingsIcon}
+                        action={() => navegacao('/config')}
+                    />
+                    <ButtonComponent
+                        text={t('perfil.password')}
+                        color='button'
+                        variant='contained'
+                        Icon={PasswordIcon}
+                    />
+                    <ButtonComponent
+                        text={t('perfil.suporte')}
+                        color='button'
+                        variant='contained'
+                        Icon={PeopleAltIcon}
+                        action={() => navegacao('/contact')}
                     />
                 </Box>
                 </Box>

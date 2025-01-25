@@ -43,6 +43,8 @@ api.interceptors.response.use(
             //redirecionar para a tela de login
             const response = await refresh();
             return response
+        }else if(error.response.status === 400){
+            return error
         }
         else{
             return Promise.reject(error)

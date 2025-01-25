@@ -53,6 +53,9 @@ const LightMode = {
         secondary:ColorsCode.taupe_gray,
         ter:'#000',
     },
+    button:{
+        main:ColorsCode.cooper
+    },
 }
 
 export const modeSlice = createSlice({

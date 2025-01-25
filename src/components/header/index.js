@@ -8,8 +8,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import CloseIcon from '@mui/icons-material/Close';
 
-import ButtonComponent from '../button'
-import {Translator} from '../translate';
 import SmallScreen from './components/smallscreen'
 import BigScreen from './components/bigscreen'
 import UserComponent from './components/user'

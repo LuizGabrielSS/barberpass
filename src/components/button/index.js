@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material'
 import { useSelector } from 'react-redux';
 
-export default function ButtonComponent({text,action,variant="outlined",color="secondary",status=false}){
+export default function ButtonComponent({text,action,variant="outlined",color="secondary",status=false,Icon=null}){
 
     const theme = useSelector((state) => state.mode.darkmode);
 
@@ -19,6 +19,7 @@ export default function ButtonComponent({text,action,variant="outlined",color="s
                         borderColor: theme.mode === "dark" ? '#rgb(181, 174, 164)' : 'gray' // Altere 'gray' para a cor desejada
                     }
                 }}
+                {...(Icon && { startIcon: <Icon /> })}
             >
                 {text}
             </Button>

@@ -14,7 +14,7 @@ const initialState = {
     'email':null,
     'user':null,
     'number':null,
-    'modalidade':null,
+    'id_modalide':null,
     'picture':null
 }
 
@@ -27,7 +27,7 @@ const reducer = (state,action) => {
 
 export default function ProfileScreen(){
 
-    const[loading,setloading] = useState(true);
+    const[loading,setloading] = useState(false);
     
     const[status,setstatus] = useState(200);
 
@@ -36,6 +36,8 @@ export default function ProfileScreen(){
     const[originalState,setoriginalState] = useState(initialState)
 
     const[loadingUpdate,setloadingUpdate] = useState(false)
+
+    const[schedules,SetSchedules] = useState([])
 
     useEffect(() => {
         UserRequest(setloading,setstatus,dispatch,setoriginalState,state)
@@ -47,19 +49,25 @@ export default function ProfileScreen(){
         status={status}
         >
             <Box
-            pt={15}
+            pt={4}
+            sx={{
+                background: 'linear-gradient(to right, #b87333, rgb(181, 174, 164))', // Gradient background
+                backgroundAttachment: 'fixed', // Make the background fixed
+            }}
             >
                 <LoadingDialogComponent
                 open={loadingUpdate}/>
                 {
-                    state.modalidade !== null && String(state.modalidade) === "1"
+                    state.id_modalide !== null && String(state.id_modalide) === "1"
                     ?   <ProfileClient
                         originalState={originalState}
                         state={state}
                         dispatch={dispatch}
                         setloading={setloadingUpdate}
                         setstatus={setstatus}
-                        setoriginalState={setoriginalState}                        
+                        setoriginalState={setoriginalState}      
+                        schedules={schedules}
+                        SetSchedules={SetSchedules}	         
                         />
                     : null
                 }

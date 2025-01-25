@@ -119,7 +119,10 @@ const perfil = {
         "placeholder":"Fill in with your preferred mode"
     },
     "save":"Save",
-    "return":"Discard changes"
+    "return":"Discard changes",
+    "configure":"onfigure",
+    "password":"change password",
+    "suporte":"Support"
 }
 
 const translation = {

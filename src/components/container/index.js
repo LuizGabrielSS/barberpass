@@ -20,7 +20,7 @@ export default function ContainerComponent({loading=false,status=200,children}){
 
     return(
         <Box
-        height={window.innerHeight}
+        height="100vh"
         sx={{
             backgroundColor:DefineColor()
         }}
@@ -35,10 +35,10 @@ export default function ContainerComponent({loading=false,status=200,children}){
                                 ?   <Box
                                     >
                                     <HeaderComponent
-                                    altura={window.innerWidth/19}
+                                    altura="5vh"
                                     />
                                     <Box
-                                    marginTop={9}
+                                    marginTop="9vh"
                                     >
                                         {children}
                                     </Box>

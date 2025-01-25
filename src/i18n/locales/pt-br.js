@@ -119,7 +119,10 @@ const perfil = {
         "placeholder":"Preencha com a modalidade que prefere"
     },
     "save":"Salvar",
-    "return":"Apagar mudanças"
+    "return":"Apagar mudanças",
+    "configure":"Configurações",
+    "password":"Mudar senha",
+    "suporte":"Suporte"
 }
 
 const translation = {
