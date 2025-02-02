@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/barberpass/static/css/main.d41e115e.css",
-    "main.js": "/barberpass/static/js/main.63fd3d3b.js",
+    "main.js": "/barberpass/static/js/main.9898d3f0.js",
     "static/js/453.2ab7e9e2.chunk.js": "/barberpass/static/js/453.2ab7e9e2.chunk.js",
     "service-worker.js": "/barberpass/service-worker.js",
-    "static/media/brasil.svg": "/barberpass/static/media/brasil.2f483b978b6584477edf73b55fd36763.svg",
+    "static/media/brasil.svg": "/barberpass/static/media/brasil.f8643a18d27e946cfbf9e033cd3b1a00.svg",
     "index.html": "/barberpass/index.html",
     "static/media/usa.svg": "/barberpass/static/media/usa.5a4567c1313b089c0405a4caabc69bc8.svg",
     "main.d41e115e.css.map": "/barberpass/static/css/main.d41e115e.css.map",
-    "main.63fd3d3b.js.map": "/barberpass/static/js/main.63fd3d3b.js.map",
+    "main.9898d3f0.js.map": "/barberpass/static/js/main.9898d3f0.js.map",
     "453.2ab7e9e2.chunk.js.map": "/barberpass/static/js/453.2ab7e9e2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d41e115e.css",
-    "static/js/main.63fd3d3b.js"
+    "static/js/main.9898d3f0.js"
   ]
 }
