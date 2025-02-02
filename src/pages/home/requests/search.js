@@ -9,18 +9,21 @@ export default function searchRequest(setLoading,setStatus,searchText,setData,po
         'Accept': 'application/json'
     }
 
-    const body = {
-        "search": searchText,
-        "location":position,
+    const params = {
+        text: searchText,
+        latitude: position['latitude'],
+        longitude: position['longitude'],
+        limit: 20
     }
 
-    api.post('/provider',body,{headers: headers})
+    api.get('/provider/search', { params: params, headers: headers })
     .then(response => {
         if(String(response).toLowerCase() === "network"){
             setStatus("network")
         }else if(response.status === 204){
             setStatus("notfound")
         }else{
+            console.log(response)
             setData(response.data)
         }
     })

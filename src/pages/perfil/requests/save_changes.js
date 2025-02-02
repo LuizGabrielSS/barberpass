@@ -24,7 +24,7 @@ export default function saveChanges(setoriginalState,state,setloading,setStatus)
         }
     }
 
-    api.patch('/user/',body,{headers: headers})
+    api.patch('/user',body,{headers: headers})
     .then(response => {
         if(String(response).toLowerCase() === "network"){
             setStatus("network")

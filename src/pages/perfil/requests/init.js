@@ -8,7 +8,7 @@ export default function UserRequest(setloading,setstatus,dispatch,setoriginalSta
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     }
-    api.get('/user/',{headers: headers})
+    api.get('/user',{headers: headers})
     .then(response => {
         if(String(response).toLowerCase() === "network"){
             setstatus("network")

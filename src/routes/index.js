@@ -5,6 +5,9 @@ import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom'
 //redux
 import { useSelector } from 'react-redux';
 
+//Recovery
+import { recovery } from '../services/keep_token'
+
 //screens
 import NotFoundScreen from '../pages/notfound'
 import HomeScreen from '../pages/home'
@@ -17,6 +20,7 @@ import MapScreen from '../pages/map'
 import ProviderScreen from '../pages/provider'
 
 function ProtectRoute({children}) {
+    recovery();
     const token = useSelector((state) => state.auth.token);
     const [currentToken, setCurrentToken] = useState(token);
 

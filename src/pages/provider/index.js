@@ -27,7 +27,12 @@ export default function ServiceProviderPage(){
 
     return(
         <ContainerComponent>
-            <Box pt={2}>
+            <Box pt={2}
+            sx={{
+                background: 'linear-gradient(to right, #b87333, rgb(181, 174, 164))', // Gradient background
+                backgroundAttachment: 'fixed', // Make the background fixed
+            }}
+            >
                 {
                     data !== null 
                     ? <ProfileComponent

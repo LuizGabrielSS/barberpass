@@ -51,13 +51,17 @@ export default function refresh(){
         'Accept': 'application/json'
     }
 
-    refresh_api.post('/login/refresh',{},{headers: headers})
+    const body = {
+        token: `Bearer ${store.getState().auth.refresh}`
+    }
+
+    refresh_api.post('/access/refresh',body,{headers: headers})
     .then(async(res) => {
         store.dispatch(setToken(res.data.token))
         store.dispatch(setRefreshToken(res.data.refresh))
-        store.dispatch(setUser(res.data.user))
+        store.dispatch(setUser(res.data.username))
         //guardando a token e a refresh
-        keep(res.data.token,res.data.refresh,res.data.user)
+        keep(res.data.token,res.data.refresh,res.data.username)
         return res.status
     })
     .catch((err) => {

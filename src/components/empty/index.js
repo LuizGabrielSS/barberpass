@@ -7,11 +7,11 @@ export default function EmptyComponent(){
     return(
         <Box
         m={2}
-        backgrounColor="background.ter"
         p={5}
         sx={{
-            border: `2px solid`,
-            // borderRadius: '8px'
+            // border: `2px solid`,
+            borderRadius: '8px',
+            backgroundColor: 'background.secondary',
         }}
         >
             <Typography
