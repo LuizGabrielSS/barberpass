@@ -39,9 +39,9 @@ export default function ProfileScreen(){
 
     const[schedules,SetSchedules] = useState([])
 
-    // useEffect(() => {
-    //     UserRequest(setloading,setstatus,dispatch,setoriginalState,state)
-    // },[])
+    useEffect(() => {
+        UserRequest(setloading,setstatus,dispatch,setoriginalState,state)
+    },[])
 
     return(
         <ContainerComponent

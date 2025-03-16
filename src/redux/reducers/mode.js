@@ -61,7 +61,7 @@ const LightMode = {
 export const modeSlice = createSlice({
     name:'mode',
     initialState:{
-        darkmode:DarkMode
+        darkmode:LightMode
     },
     reducers:{
         ChangeMode: (state, action) => {
