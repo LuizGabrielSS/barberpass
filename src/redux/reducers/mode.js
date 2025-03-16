@@ -1,14 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const ColorsCode = {
-    "coffe_brown":"rgb(102, 51, 0)", //"#663300"
-    "crisp_white":"rgb(255, 255, 255)",
-    "taupe_gray":"rgb(181, 174, 164)",
-    "cooper":"rgb(184, 115, 51)", // #b87333
-    "teal":"rgb(0, 128, 128)",
-    "mustard_yellow":"rgb(255, 219, 88)" //#ffdb58 //#ffe68c //#f7db74
-}
-
 const DarkMode = {
     mode:'dark',
     primary:{
@@ -16,20 +7,20 @@ const DarkMode = {
         secondary:"#A60321",
     },
     secondary:{
-        main:ColorsCode.taupe_gray
+        main:"rgb(181, 174, 164)"
     },
     text:{
         main:"#400112",
-        secondary:ColorsCode.coffe_brown,
+        secondary:"#A60321",
         ter:'#000',
     },
     background:{
-        main:ColorsCode.coffe_brown,
-        secondary:ColorsCode.cooper,
-        ter:ColorsCode.taupe_gray,
+        main:"#A60321",
+        secondary:"#730220",
+        ter:"rgb(181, 174, 164)",
     },
     button:{
-        main:ColorsCode.teal
+        main:"#668C14"
     },
 }
 
@@ -38,23 +29,23 @@ const LightMode = {
     primary:{
         main:"#000",
         secondary:"#A60321",
-        ter:ColorsCode.crisp_white,
+        ter:"rgb(255, 255, 255)",
     },
     secondary:{
-        main:ColorsCode.crisp_white
+        main:"rgb(255, 255, 255)"
     },
     background:{
-        main:ColorsCode.coffe_brown,
-        secondary:ColorsCode.cooper,
-        ter:ColorsCode.taupe_gray,
+        main:"#A60321",
+        secondary:"#400112",
+        ter:"rgb(181, 174, 164)",
     },
     text:{
-        main:ColorsCode.crisp_white,
-        secondary:ColorsCode.taupe_gray,
+        main:"rgb(255, 255, 255)",
+        secondary:"rgb(181, 174, 164)",
         ter:'#000',
     },
     button:{
-        main:ColorsCode.cooper
+        main:"#730220"
     },
 }
 
