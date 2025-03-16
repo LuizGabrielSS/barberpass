@@ -86,9 +86,9 @@ export default function RoutesFunction(){
                 <Route
                     path="/perfil"
                     element={
-                        <ProtectRoute>
+                        // <ProtectRoute>
                             <PerfilScreen/>
-                        </ProtectRoute>
+                        // </ProtectRoute>
                     }
                 />
                 <Route

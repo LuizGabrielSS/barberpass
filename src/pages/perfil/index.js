@@ -39,9 +39,9 @@ export default function ProfileScreen(){
 
     const[schedules,SetSchedules] = useState([])
 
-    useEffect(() => {
-        UserRequest(setloading,setstatus,dispatch,setoriginalState,state)
-    },[])
+    // useEffect(() => {
+    //     UserRequest(setloading,setstatus,dispatch,setoriginalState,state)
+    // },[])
 
     return(
         <ContainerComponent
@@ -51,7 +51,7 @@ export default function ProfileScreen(){
             <Box
             pt={4}
             sx={{
-                background: 'linear-gradient(to right, #b87333, rgb(181, 174, 164))', // Gradient background
+                background: 'linear-gradient(to right, #A60321, rgb(181, 174, 164))', // Gradient background
                 backgroundAttachment: 'fixed', // Make the background fixed
             }}
             >

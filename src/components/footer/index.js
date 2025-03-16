@@ -15,8 +15,16 @@ function SocialComponent(){
     alignItems='center'
     justifyContent='center'
     >
-      <LinkedInIcon/>
-      <InstagramIcon/>
+      <LinkedInIcon
+      sx={{
+        color:"#fff"
+      }}
+      />
+      <InstagramIcon
+      sx={{
+        color:"#fff"
+      }}
+      />
     </Box>
   )
 }
@@ -27,7 +35,7 @@ export default function FooterComponent(){
       position: 'relative',
       bottom: 0,
       width: '100%',
-      backgroundColor: "rgb(184, 115, 51)",
+      backgroundColor: "#400112",
       padding: theme.spacing(2),
       textAlign: 'center',
     }));
@@ -41,7 +49,11 @@ export default function FooterComponent(){
           alignItems='center'
           justifyContent='space-between'
           >
-            <Typography>
+            <Typography
+            sx={{
+              color:"#fff"
+            }}
+            >
               SoinPass
             </Typography>
             <SocialComponent/>
